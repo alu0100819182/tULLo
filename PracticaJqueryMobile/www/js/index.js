@@ -175,3 +175,21 @@ var app = {
         console.log('Received Event: ' + id);
     }
 };
+
+$(document).ready(function(){
+  var url="generarjson.php";
+  $("#tablajson tbody").html("");
+  $.getJSON(url,function(usuarios){
+    $.each(usuarios, function(i,usuario){
+      var newRow =
+      "<tr>"
+      +"<td>"+usuario.nombre+"</td>"
+      +"<td>"+usuario.apellido+"</td>"
+      +"<td>"+usuario.correo+"</td>"
+      +"<td>"+usuario.fecha+"</td>"
+      +"<td>"+usuario.telefono+"</td>"
+      +"</tr>";
+      $(newRow).appendTo("#tablajson tbody");
+    });
+  });
+});
