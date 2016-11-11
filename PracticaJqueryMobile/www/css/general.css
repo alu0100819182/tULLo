@@ -1,0 +1,97 @@
+html {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+
+#iniciar-sesion {
+	width: 100%;
+	height: 80%;
+	background-image: url("../img/fondo-pantalla.png");
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+.contenedor-principal {
+	width: 90%;
+	height: 40%;
+	background-color: yellow;
+	vertical-align: center;
+}
+
+#inicio {
+	width: 100%;
+	height: 8%;
+	background-color: #723180;
+	background-image: url("../img/logo.png");
+	background-repeat: no-repeat;
+	background-position: center;
+	background-size: 80px 35px;
+	border-bottom: 1px solid black;
+	border-top: 1px solid black;
+}
+
+#pie {
+  width: 100%;
+  height: 5%;
+  background-color: white;
+  position: fixed;
+  bottom: 0;
+  border-top: 1px solid black;
+  background-image: url("../img/footer_ull.png");
+  background-size: 90px 20px;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+#fotoperfil {
+  background-image: url("../img/perfil.jpg");
+  width: 150px;
+  height: 100px;
+  background-size: cover;
+}
+
+.fue {
+  font-family: 'Montserrat', sans-serif;
+}
+
+.titulo {
+  font-size: 20px;
+  font-family: 'Indie Flower', cursive;
+}
+
+.contenedor-titulo {
+	width: 100%;
+	height: 5%;
+	background-color: #262627;
+	text-align: center;
+	font-size: 1.3em;
+	color: white;
+	font-family: "fuente-titulo";
+	letter-spacing: 0.07em;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  border-bottom: 1px solid black;
+  font-style: normal;
+  margin-bottom: 5%;
+}
+
+@font-face {
+    font-family: "fuente-titulo";
+    src: url(../fonts/coolvetica.ttf) format("truetype");
+}
+
+#fotoperfil {
+  background-image: url("../img/perfil.jpg");
+  width: 150px;
+  height: 100px;
+  background-size: cover;
+}
