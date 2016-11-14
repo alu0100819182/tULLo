@@ -14,7 +14,7 @@ body {
 #iniciar-sesion {
 	width: 100%;
 	height: 80%;
-	background-image: url("../img/fondo-pantalla.png");
+	background-image: url("../images/fondo_pantalla.png");
 	background-repeat: no-repeat;
 	background-size: cover;
 }
@@ -30,7 +30,7 @@ body {
 	width: 100%;
 	height: 8%;
 	background-color: #723180;
-	background-image: url("../img/logo.png");
+	background-image: url("../images/logo.png");
 	background-repeat: no-repeat;
 	background-position: center;
 	background-size: 80px 35px;
@@ -45,14 +45,14 @@ body {
   position: fixed;
   bottom: 0;
   border-top: 1px solid black;
-  background-image: url("../img/footer_ull.png");
+  background-image: url("../images/footer_ull.png");
   background-size: 90px 20px;
   background-position: center;
   background-repeat: no-repeat;
 }
 
 #fotoperfil {
-  background-image: url("../img/perfil.jpg");
+  background-image: url("../images/perfil.jpg");
   width: 150px;
   height: 100px;
   background-size: cover;
@@ -90,7 +90,7 @@ body {
 }
 
 #fotoperfil {
-  background-image: url("../img/perfil.jpg");
+  background-image: url("../images/perfil.jpg");
   width: 150px;
   height: 100px;
   background-size: cover;
