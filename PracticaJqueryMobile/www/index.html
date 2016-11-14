@@ -108,13 +108,9 @@
 
             <script type="text/javascript">
               $(document).ready(function(){
-                console.log("hola b");
-                var url="generarJSON.php";
                 $("#tablajson tbody").html("");
-                $.getJSON(url,function(usuarios) {
-                  console.log("hola bb");
+                $.getJSON("http://localhost/tULLo/PracticaJqueryMobile/www/generarJSON.php", function(usuarios) {
                   $.each(usuarios, function(i,usuario) {
-                    console.log("hola bbb");
                     var newRow =
                     "<tr>"
                     +"<td>"+usuario.nombre+"</td>"

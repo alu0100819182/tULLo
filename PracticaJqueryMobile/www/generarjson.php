@@ -6,38 +6,49 @@ $pass = "";
 $bd = "tullo";
 
 //Creamos la conexión
-$conexion = mysqli_connect($server, $user, $pass,$bd)
+$con = mysql_connect($server, $user, $pass,$bd)
 or die("Ha sucedido un error inexperado en la conexion de la base de datos");
 
-//generamos la consulta
-$sql = "SELECT * FROM usuarios";
-mysqli_set_charset($conexion, "utf8"); //formato de datos utf8
+mysql_set_charset("utf8", $con); //formato de datos utf8
 
-if(!$result = mysqli_query($conexion, $sql)) die();
+$conexion = mysql_select_db($bd, $con);
+
+//generamos la consulta
+$consulta = "SELECT * FROM usuarios";
+$sql = mysql_query($consulta);
+
+if(! $sql) {
+  echo "La conexion no se logro".mysql_error();
+  die;
+}
 
 $usuarios = array(); //creamos un array
 
-while($row = mysqli_fetch_array($result))
+while($row = mysql_fetch_array($sql))
 {
-    $nombre=$row['nombre'];
-    $apellido=$row['apellido'];
-    $correo=$row['correo'];
-    $fecha=$row['fecha'];
-    $telefono=$row['telefono'];
+  $nombre = $row['nombre'];
+  $apellido = $row['apellidos'];
+  $correo = $row['correo'];
+  $fecha = $row['fecha_nacimiento'];
+  $telefono = $row['telefono'];
 
-    $usuarios[] = array('nombre'=> $nombre, 'apellido'=> $apellido,
-                        'correo'=> $correo, 'fecha'=> $fecha, 'telefono'=> $telefono);
-
+  $usuarios[] = array('nombre'=> $nombre,
+                        'apellido'=> $apellido,
+                        'correo'=> $correo,
+                        'fecha'=> $fecha,
+                        'telefono'=> $telefono);
 }
-
-//desconectamos la base de datos
-$close = mysqli_close($conexion)
-or die("Ha sucedido un error inexperado en la desconexion de la base de datos");
-
 
 //Creamos el JSON
 $json_string = json_encode($usuarios);
 echo $json_string;
+
+//desconectamos la base de datos
+$close = mysql_close($con)
+or die("Ha sucedido un error inexperado en la desconexion de la base de datos");
+
+header('Content-type: application/json');
+header("Access-Control-Allow-Origin: *");
 
 //Si queremos crear un archivo json, sería de esta forma:
 /*
