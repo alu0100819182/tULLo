@@ -2,251 +2,86 @@
 
 <html>
 
-<head>
+  <head>
 
-  <meta charset="utf-8" />
-  <meta name="format-detection" content="telephone=no" />
-  <meta name="msapplication-tap-highlight" content="no" />
-  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-  <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/general.css" />
+     <script src="js/jquery.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <link href="css/fuente.css" rel="stylesheet">
+    <link href="css/fontawesome.css" rel="stylesheet">
+    <link href="css/botones.css" rel="stylesheet">
+    <title>Tullo</title>
 
-	<link rel="stylesheet" type="text/css" href="css/inicial.css" />
-  <link rel="stylesheet" type="text/css" href="css/general.css" />
-	<script src="js/jquery.js"></script>
-	<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
-	<script src="js/jquery.mobile-1.4.5.min.js"></script>
-  <link href="css/fuente.css" rel="stylesheet">
-  <link href="css/fontawesome.css" rel="stylesheet">
-  <link href="css/botones.css" rel="stylesheet">
-  <script src="js/index.js"></script>
+  </head>
 
-  <title>tULLo</title>
-
-</head>
-
-<body>
-
-<div data-role="page" id="principal"> <!-- PAGINA PRINCIPAL -->
-
-  <div role="main" class="contenedor-central" data-position="fixed">
-      <div class="logo"></div>
-      <div role="main" class="ui-content" id="contenedor-botones"> <!-- BOTONES -->
-          <a id="boton-iniciar" href="#inises" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Iniciar sesión</a>
-          <a id="boton-registrar" href="#registro" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Registrarse</a>
-      </div>
-  </div>
-
-  <div data-role="footer" id="footer" data-position="fixed"><div class="logo-ull"></div></div> <!-- FOOTER -->
-
-</div>
-
-<div data-role="page" id="inises"> <!-- INICIO SESIÓN -->
-
-	<div data-role="header" id="inicio" data-position="fixed">
-	</div>
-
-  <div class="contenedor-titulo">INICIO DE SESIÓN</div>
-	<div role="main" class="ui-content">
-    <label for="text-basic">Usuario:</label>
-    <input name="text-basic" id="text-basic" value="" type="text">
-    <label for="text-basic">Contraseña:&nbsp;&nbsp;&nbsp;</label><a href="#recordar">¿Olvidaste tu contraseña?</a>
-    <input name="text-basic" id="text-basic" value="" type="text">
-    <a href="#perfil" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon ui-btn-b">Iniciar sesión</a>
-    <p>¿Eres nuevo en tULLo?&nbsp;&nbsp;  <a href="#registro"
-    class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon ui-btn-b">Crear una cuenta</a>
-	</div>
-
-  <div data-role="footer" id="pie" data-position="fixed">
-  </div>
-
-</div>
-
-<div data-role="page" id="registro"> <!-- REGISTRARSE -->
-
-	<div data-role="header" id="inicio" data-position="fixed">
-	</div>
-  <div class="contenedor-titulo">REGISTRARSE</div>
-	<div role="main" class="ui-content">
-    <label for="text-basic">Nombre:</label>
-    <input name="text-basic" id="text-basic" value="" type="text">
-    <label for="text-basic">Apellidos:</label>
-    <input name="text-basic" id="text-basic" value="" type="text">
-    <label for="text-basic">Correo institucional:</label>
-    <input name="text-basic" id="text-basic" value="" type="text">
-    <label for="text-basic">Fecha nacimiento:</label>
-    <input name="text-basic" id="text-basic" value="" type="text">
-    <a href="#inises" class="ui-btn"><i class="fa fa-check" aria-hidden="true"></i></a>
-	</div>
-
-  <div data-role="footer" id="pie" data-position="fixed">
-  </div>
-
-</div>
-
-<div data-role="page" id="recordar"> <!-- OLVIDO DE CONTRASEÑA -->
-
-	<div data-role="header" id="inicio" data-position="fixed">
-	</div>
-
-	<div role="main" class="ui-content">
-		<p>Hemos enviado a tu correo tu contraseña provisional</p>
-		<p><a href="#inises" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon ui-btn-b">Volver a Iniciar Sesion</a></p>
-	</div>
-
-  <div data-role="footer" id="pie" data-position="fixed">
-  </div>
-
-</div>
-
-<div data-role="page" class="jqm-demos" id="perfil" data-title="Panel fixed positioning" data-url="panel-fixed-page1"> <!-- PERFIL -->
-
-    <div data-role="header" id="inicio" data-position="fixed">
-        <a href="#nav-panel" data-iconpos="notext"><i class="fa fa-bars" aria-hidden="true"></i></a>
-    </div>
-
-    <div class="contenedor-titulo">PERFIL PERSONAL</div>
-    <div role="main" class="ui-content jqm-content jqm-fullwidth" data-position="fixed">
-      <div id="fotoperfil"></div>
-      <table class="grilla" id="tablajson">
-        <thead>
-          <th>nombre</th>
-          <th>apellido</th>
-          <th>correo</th>
-          <th>fecha</th>
-          <th>telefono</th>
-        </thead>
-        <tbody></tbody>
-      </table>
-    </div>
-
-    <div data-role="footer" id="pie" data-position="fixed">
-    </div>
-
-    <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="b" id="nav-panel">
-        <ul data-role="listview">
-            <li data-icon="delete"><a href="#" data-rel="close">Cerrar menu</a></li>  
-            <li><a href="#principal">Cerrar sesion</a></li>
-            <li><a href="#agenda">Agenda</a></li>   
-            <li><a href="#calendario">Calendario</a></li>
-        </ul>
-    </div><!-- /panel -->
-
-</div>
-
-<div data-role="page" id="editar"> <!-- EDITAR PERFIL -->
-
-    <div data-role="header" id="inicio" data-position="fixed">
-    </div>
-    <div class="contenedor-titulo">EDITA TU PERFIL</div>
-    <div role="main" class="ui-content">
-        <div id="fotoperfil"></div>
-        <p><button data-role="none">Cambiar foto</button></p>
-        <label class="fue" for="nombre">Nombre:</label>
-        <input name="name" id="nombre" value="" placeholder="Luis David Padilla Martín" type="nombre"><br>
-        <label class="fue" for="correo">Correo Institucional:</label>
-        <input name="email" id="correo" value="" placeholder="alu0100816518@ull.edu.es" type="correo"><br>
-        <label class="fue" for="fecha">Fecha de nacimiento:</label>
-        <input name="date" id="fecha" value="" placeholder="17/07/95" type="fecha">
-        <a href="#perfil" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon ui-btn-b">Guardar Cambios</a>
-    </div>
-
-    <div data-role="footer" id="pie" data-position="fixed">
-    </div>
-
-</div>
-
-<div data-role="page" id="calendario"> <!-- CALENDARIO -->
-
-    <div data-role="header" id="inicio" data-position="fixed">
-    </div>
-    <div class="contenedor-titulo">CALENDARIO</div>
-    <div role="main" class="ui-content">
-        <div id="calendario">
-          <div id="buscafecha">
-            <form class="ui-shadow-icon" action="#" name="buscar">
-              <p>Buscar MES :
-                <select name="buscames">
-                  <option value="0">Enero</option>
-                  <option value="1">Febrero</option>
-                  <option value="2">Marzo</option>
-                  <option value="3">Abril</option>
-                  <option value="4">Mayo</option>
-                  <option value="5">Junio</option>
-                  <option value="6">Julio</option>
-                  <option value="7">Agosto</option>
-                  <option value="8">Septiembre</option>
-                  <option value="9">Octubre</option>
-                  <option value="10">Noviembre</option>
-                  <option value="11">Diciembre</option>
-                </select>
-                AÑO :
-                <input type="text" name="buscaanno" maxlength="4" size="4" />
-                <input type="button" value="BUSCAR" onclick="mifecha()" />
-              </p>
-            </form>
+  <body>
+      <div data-role="page" id="principal"> <!-- PÁGINA PRINCIPAL -->
+        <div class="contenedor-pantalla"> 
+          <div class="contenedor-central">
+              <div class="logo"></div>
+              <div role="main" class="ui-content" id="contenedor-botones">
+                  <a id="boton-iniciar" href="#iniciar-sesion" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Iniciar sesión</a>
+                  <a id="boton-registrar" href="#registrar" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Registrarse</a>
+              </div>
           </div>
-          <div id="anterior" onclick="mesantes()"></div>
-          <div id="posterior" onclick="mesdespues()"></div>
-          <h2 id="titulos"></h2>
-          <table id="diasc">
-            <tr id="fila0"><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
-            <tr id="fila1"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr id="fila2"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr id="fila3"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr id="fila4"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr id="fila5"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-            <tr id="fila6"><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
-          </table>
-          <div id="fechaactual"><i onclick="actualizar()">HOY: </i></div>
         </div>
-    </div>
+        <div data-role="footer" id="footer"><div class="logo-ull"></div></div>
 
-    <div data-role="footer" id="pie" data-position="fixed">
-    </div>
+      </div><!-- FIN PÁGINA PRINCIPAL -->
 
-</div>
+      <div data-role="page" id="iniciar-sesion"> <!-- PANTALLA INICIO SESIÓN -->
+        <!--<div id="iphone"></div>-->
+    	  <div data-role="header" id="cabecera"><a id="boton-atras" href="#principal"></a></div> 
+        
+        <div class="contenedor-titulo">INICIO DE SESIÓN</div>
+        <div role="main" class="ui-content">
+          <label for="text-basic"><b>Usuario</b></label>
+          <input name="text-basic" id="text-basic" value="" type="text">
+          <label for="text-basic"><b>Contraseña&nbsp;&nbsp;&nbsp;</b></label>
+          <input name="text-basic" id="text-basic" value="" type="text">
+          <a href="#recordar">¿Olvidaste tu contraseña?</a>
+          <a href="#perfil" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b" id="boton-iniciar">Iniciar sesión</a>
+    	  </div>
 
-<div data-role="page" id="agenda"> <!-- AGENDA -->
+      </div> <!-- FIN PANTALLA INICIO SESIÓN -->
 
-	<div data-role="header" id="inicio" data-position="fixed">
-	</div>
-  <div class="contenedor-titulo">AGENDA</div>
-	<div role="main" class="ui-content" data-position="fixed">
-		<ul data-role="listview" data-inset="true">
-			<li data-role="list-divider"><input type="dia" name="dia" id="dia" value="" placeholder="Añade el dia"></li>
-		</ul>
+      <div data-role="page" id="registrar"> <!-- PANTALLA REGISTRO -->
 
-		<ul data-role="listview" data-inset="true">
-    		<li data-role="list-divider">Viernes, Noviembre 11, 2016</li>
-    		<li>
-    			<h2>Clase práctica de Interfaces Inteligentes</h2>
-    			<p><strong>Entrega de pantallas del proyecto</strong></p>
-    			<p>1.- Instalación de entorno de desarrollo phonegap,</p>
-				<p>2.- Desarrollo de página hola mundo.</p>
-				<p>3.- Prácticar con objetos de jquery mobile (http://jquerymobile.com/). (Diseñar 6 pantallas )</p>
-        <p><strong>8:30-10:30 </strong>PM</p>
-    		</li>
-    		<li>
-    			<h2>Clase Teórica de Interfaces Inteligentes</h2>
-    			<p><strong>Clase Teórica</strong></p>
-    			<p>El profesor dará teória para ayudarnos al desarrollo de nuestra app </p>
-        	<p><strong>10:30-12:30 </strong>PM</p>
-    		</li>
-			<li>
-				<input type="titulo" name="titulo" id="titulo" value="" placeholder="Añade Titulo"><br>
-				<input type="subtitulo" name="subtitulo" id="subtitulo" value="" placeholder="Añade Subtitulo">
-				<textarea cols="40" rows="8" name="textarea" id="textarea" placeholder="Añade tu tarea"></textarea>
-				<input type="hora" name="hora" id="hora" value="" placeholder="Añade las horas">
-			</li>
-		</ul>
+      	<div data-role="header" id="cabecera"></div>
 
-	</div>
+      	<div role="main" class="ui-content">
+          <p>Registarse</p>
+          <label for="text-basic">Nombre:</label>
+          <input name="text-basic" id="text-basic" value="" type="text">
+          <label for="text-basic">Apellidos:</label>
+          <input name="text-basic" id="text-basic" value="" type="text">
+          <label for="text-basic">Correo institucional:</label>
+          <input name="text-basic" id="text-basic" value="" type="text">
+          <label for="text-basic">Fecha nacimiento:</label>
+          <input name="text-basic" id="text-basic" value="" type="text">
+          <a href="#inises" class="ui-btn"><i class="fa fa-check" aria-hidden="true"></i></a>
+      	</div>
 
-  <div data-role="footer" id="pie" data-position="fixed">
-  </div>
+      </div> <!-- FIN PANTALLA REGISTRO -->
 
-</div>
+      <div data-role="page" id="recordar"> <!-- PANTALLA RECORDAR CONTRASEÑA -->
 
-</body>
+  	    <div data-role="header" id="cabecera"></div>
+
+  	    <div role="main" class="ui-content">
+  		    <p>Hemos enviado a tu correo tu contraseña provisional</p>
+  		    <p><a href="#inises" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon ui-btn-b">Volver a Iniciar Sesion</a></p>
+  	    </div>
+
+      </div> <!-- FIN PANTALLA RECORDAR CONTRASEÑA -->
+
+  </body>
 </html>
