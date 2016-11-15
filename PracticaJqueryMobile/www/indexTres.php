@@ -25,42 +25,40 @@
 
   </head>
 	<body>
-		<?php
-		$server = "localhost";
-		$user = "root";
-		$pass = "";
-		$bd = "tullo";
+    <?php
 
-		//Creamos la conexión
-		$con = mysql_connect($server, $user, $pass,$bd)
-		or die("Ha sucedido un error inexperado en la conexion de la base de datos");
+    $server = "localhost";
+    $user = "root";
+    $pass = "";
+    $bd = "tullo";
 
-		mysql_set_charset("utf8", $con); //formato de datos utf8
+    if(isset($_POST['registrarse'])) {
 
-		$conexion = mysql_select_db($bd, $con);
+      $con = mysql_connect($server, $user, $pass,$bd)
+      or die("Ha sucedido un error inexperado en la conexion de la base de datos");
 
-		//generamos la consulta
-		$consulta = "SELECT * FROM usuarios";
-		$sql = mysql_query($consulta);
+      $conexion = mysql_select_db($bd, $con);
 
-		if(! $sql) {
-			echo "La conexion no se logro".mysql_error();
-		die;
-		}
-		
-		if(isset($_POST['registrarse'])){
-			$nombre = $_POST['nickname'];
-			$apellidos = $_POST['nickape'];
-			$fecha = $_POST['fecha'];
-			$correo = $_POST['usermail'];
-			$telefono = $_POST['nicktele'];
-			$contraseña = $_POST['userpass'];
-			
-			$sql = "INSERT INTO `tullo`.`usuarios` (`nombre`, `apellidos`, `correo`, `fecha_nacimiento`, `telefono`, `contraseña`) 
-			VALUES ('$nombre', '$apellidos', '$correo', '$fecha', '$telefono', '$contraseña');"
-			$result = mysql_query($con,$sql);
-		}
-		?>
+      $nombre = $_POST['nickname'];
+      $apellidos = $_POST['nickape'];
+      $fecha = $_POST['fecha'];
+      $correo = $_POST['usermail'];
+      $telefono = $_POST['nicktele'];
+      $contraseña = $_POST['userpass'];
+
+      $sql = "INSERT INTO `tullo`.`usuarios` (`nombre`, `apellidos`, `correo`, `fecha_nacimiento`, `telefono`)
+      VALUES ('$nombre', '$apellidos', '$correo', '$fecha', '$telefono')";
+
+      mysql_query($sql);
+
+      echo "Fila insertada";
+
+    } else {
+      echo "Fallo";
+    }
+
+    ?>
+
 	</body>
-  
+
 </html>
