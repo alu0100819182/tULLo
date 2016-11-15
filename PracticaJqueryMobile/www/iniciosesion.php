@@ -26,49 +26,45 @@
   </head>
 	<body>
     <?php
+    session_start();
 
     $server = "localhost";
     $user = "root";
     $pass = "";
     $bd = "tullo";
 
-    if(isset($_POST['registrarse'])) {
+    if(isset($_POST['iniciar_sesion'])) {
+        if($_POST['usermail']!="" && $_POST['userpass']!="") {
+        $con = mysql_connect($server, $user, $pass, $bd)
+        or die("Ha sucedido un error inexperado en la conexion de la base de datos");
+        mysql_set_charset("utf8", $con);
 
-      $con = mysql_connect($server, $user, $pass, $bd)
-      or die("Ha sucedido un error inexperado en la conexion de la base de datos");
+        $conexion = mysql_select_db($bd, $con);
+        $mail = $_POST['usermail'];
+        $pass = $_POST['userpass'];
+        $encri = sha1($pass);
 
-      $conexion = mysql_select_db($bd, $con);
+        $consulta = "SELECT * FROM usuarios WHERE correo = '$mail' AND contrasena = '$pass'";
+        $resultado = mysql_query($consulta);
+        if(! $resultado) {
+          echo "La conexion no se logro".mysql_error();
+          die;
+        }
+        $count = mysql_num_rows($resultado);
 
-      $nombre = $_POST['nickname'];
-      $apellidos = $_POST['nickape'];
-      $fecha = $_POST['fecha'];
-      $correo = $_POST['usermail'];
-      $telefono = $_POST['nicktele'];
-      $contrasena = $_POST['userpass'];
-	    $encriptar = sha1($contrasena);
-
-	    $sql2 = "SELECT COUNT(*) FROM usuarios WHERE correo = $correo";
-
-	    if($sql2 == 1) {
-		      echo "Ese correo ya está registrado";
-	    }
-      else {
-		      $sql = "INSERT INTO `tullo`.`usuarios` (`nombre`, `apellidos`, `correo`, `fecha_nacimiento`, `telefono`, `contrasena`)
-          VALUES ('$nombre', '$apellidos', '$correo', '$fecha', '$telefono', '$encriptar')";
-		      $consulta = mysql_query($sql);
-          if(! $consulta) {
-            echo "La conexion no se logro".mysql_error();
-            die;
+          if($count == 1) {
+            $_SESSION['iniciar_sesion'] = 'dog';
+            header("location:indexDos.html");
           }
-		      echo "Fila insertada";
-	    }
-
-    } else {
-      echo "Fallo";
+          else {
+            echo "No se pudo iniciar sesion";
+          }
+        }
+    }
+    else {
+      echo "Rellena los campos";
     }
 
     ?>
-
 	</body>
-
 </html>

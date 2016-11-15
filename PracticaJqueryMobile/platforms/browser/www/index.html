@@ -46,7 +46,7 @@
 
         <div class="contenedor-titulo">INICIO DE SESIÓN</div>
         <div role="main" class="ui-content">
-          <form action="indexDos.html" method="get">
+          <form action="iniciosesion.php" method="POST">
             <label for="correo"> Correo: </label><br>
             <input type="email" name="usermail"><br>
             <label for="contra"> Contraseña: </label><br>
@@ -63,20 +63,20 @@
 
       	<div role="main" class="ui-content">
           <p>Registarse</p>
-          <form action="indexTres.php" method="POST">
+          <form action="registro.php" method="POST">
             <label for="nombre">Nombre:</label>
-            <input type="text" name="nickname"><br>
+            <input type="text" name="nickname" required><br>
             <label for="apellidos">Apellidos:</label>
-            <input type="text" name="nickape"><br>
+            <input type="text" name="nickape" required><br>
             <label for="fecha">Fecha de nacimiento:</label>
-            <input type="date" name="fecha"><br>
+            <input type="date" name="fecha" required><br>
             <label for="correo">Correo:</label>
-            <input type="email" name="usermail"><br>
+            <input type="email" name="usermail" required><br>
             <label for="movil">Telefono:</label>
-            <input type="text" name="nicktele"><br>
+            <input type="tel" name="nicktele" required><br>
             <label for="contra">Contraseña:</label>
-            <input type="text" name="userpass"><br>
-            <input type="submit" name="iniciar_sesion" value=""><i class="fa fa-check" aria-hidden="true"></i><br>
+            <input type="password" name="userpass" required><br>
+            <input type="submit" name="registrarse" value="Registrarse"><br>
           </form>
       	</div>
 
