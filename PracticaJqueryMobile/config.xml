@@ -110,4 +110,11 @@
     <allow-intent href="itms:*"/>
     <allow-intent href="itms-apps:*"/>
   </platform>
+  <system.webServer>
+    <httpProtocol>
+      <customHeaders>
+        <add name="Content-Security-Policy" value="default-src 'self';" />
+      </customHeaders>
+    </httpProtocol>
+  </system.webServer>
 </widget>
