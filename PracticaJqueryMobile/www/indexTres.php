@@ -45,14 +45,22 @@
       $correo = $_POST['usermail'];
       $telefono = $_POST['nicktele'];
       $contraseña = $_POST['userpass'];
+	  $encriptar = sha1($contraseña);
+	  
+	  $sql2 = "SELECT COUNT(*) FROM usuarios WHERE correo = $correo";
+			 
+	  if($sql2 == 1){
+		echo "Ese correo ya está registrado";
+	  } else{
+		$sql = "INSERT INTO `tullo`.`usuarios` (`nombre`, `apellidos`, `correo`, `fecha_nacimiento`, `telefono`, `contraseña`) 
+		VALUES ('$nombre', '$apellidos', '$correo', '$fecha', '$telefono', '$encriptar')";
 
-      $sql = "INSERT INTO `tullo`.`usuarios` (`nombre`, `apellidos`, `correo`, `fecha_nacimiento`, `telefono`)
-      VALUES ('$nombre', '$apellidos', '$correo', '$fecha', '$telefono')";
+		mysql_query($sql);
 
-      mysql_query($sql);
-
-      echo "Fila insertada";
-
+		echo "Fila insertada";
+		  
+	  }
+		
     } else {
       echo "Fallo";
     }
