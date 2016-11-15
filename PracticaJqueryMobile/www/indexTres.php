@@ -26,6 +26,28 @@
   </head>
 	<body>
 		<?php
+		$server = "localhost";
+		$user = "root";
+		$pass = "";
+		$bd = "tullo";
+
+		//Creamos la conexión
+		$con = mysql_connect($server, $user, $pass,$bd)
+		or die("Ha sucedido un error inexperado en la conexion de la base de datos");
+
+		mysql_set_charset("utf8", $con); //formato de datos utf8
+
+		$conexion = mysql_select_db($bd, $con);
+
+		//generamos la consulta
+		$consulta = "SELECT * FROM usuarios";
+		$sql = mysql_query($consulta);
+
+		if(! $sql) {
+			echo "La conexion no se logro".mysql_error();
+		die;
+		}
+		
 		if(isset($_POST['registrarse'])){
 			$nombre = $_POST['nickname'];
 			$apellidos = $_POST['nickape'];
@@ -36,7 +58,7 @@
 			
 			$sql = "INSERT INTO `tullo`.`usuarios` (`nombre`, `apellidos`, `correo`, `fecha_nacimiento`, `telefono`, `contraseña`) 
 			VALUES ('$nombre', '$apellidos', '$correo', '$fecha', '$telefono', '$contraseña');"
-			$result=mysql_query($con,$sql);
+			$result = mysql_query($con,$sql);
 		}
 		?>
 	</body>
