@@ -1,38 +1,47 @@
-//Arrays de datos:
- meses=["enero","febrero","marzo","abril","mayo","junio","julio","agosto","septiembre","octubre","noviembre","diciembre"];
- lasemana=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"]
- diassemana=["lun","mar","mié","jue","vie","sáb","dom"];
- //Tras cargarse la página ...
- window.onload = function() {
- //fecha actual
- hoy=new Date(); //objeto fecha actual
- diasemhoy=hoy.getDay(); //dia semana actual
- diahoy=hoy.getDate(); //dia mes actual
- meshoy=hoy.getMonth(); //mes actual
- annohoy=hoy.getFullYear(); //año actual
- // Elementos del DOM: en cabecera de calendario
- tit=document.getElementById("titulos"); //cabecera del calendario
- ant=document.getElementById("anterior"); //mes anterior
- pos=document.getElementById("posterior"); //mes posterior
- // Elementos del DOM en primera fila
- f0=document.getElementById("fila0");
- //Pie de calendario
- pie=document.getElementById("fechaactual");
- pie.innerHTML+=lasemana[diasemhoy]+", "+diahoy+" de "+meses[meshoy]+" de "+annohoy;
- //formulario: datos iniciales:
- document.buscar.buscaanno.value=annohoy;
- // Definir elementos iniciales:
- mescal = meshoy; //mes principal
- annocal = annohoy //año principal
- //iniciar calendario:
- cabecera()
- primeralinea()
- escribirdias()
+// CÓDIGO JAVASCRIPT DEL PROYECTO.
+
+// Definición de los array necesarios.
+meses=["Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre"];
+lasemana=["Domingo","Lunes","Martes","Miércoles","Jueves","Viernes","Sábado"]
+diassemana=["L","M","X","J","V","S","D"];
+
+ window.onload = function() { // Cargamos la página.
+
+  hoy = new Date(); // Objeto Date para almacenar la fecha.
+  diasemhoy = hoy.getDay(); // Obtenemos el dia de la semana actual.
+  diahoy=hoy.getDate(); //dia mes actual
+  meshoy=hoy.getMonth(); //mes actual
+  annohoy=hoy.getFullYear(); //año actual
+
+  // Elementos del DOM: en cabecera de calendario
+  tit=document.getElementById("titulos"); //cabecera del calendario
+  tit2=document.getElementById("titulo-ano");
+  ant=document.getElementById("anterior"); //mes anterior
+  pos=document.getElementById("posterior"); //mes posterior
+   
+  // Elementos del DOM en primera fila
+  f0=document.getElementById("fila0");
+  //Pie de calendario
+  pie=document.getElementById("fechaactual");
+   pie.innerHTML+=lasemana[diasemhoy]+", "+diahoy+" de "+meses[meshoy]+" de "+annohoy;
+   //formulario: datos iniciales:
+   document.buscar.buscaanno.value=annohoy;
+   // Definir elementos iniciales:
+   mescal = meshoy; //mes principal
+   annocal = annohoy //año principal
+   //iniciar calendario:
+   cabecera()
+   primeralinea()
+   escribirdias()
+   deteccion()
+   localizarCelda()
  }
+
  //FUNCIONES de creación del calendario:
  //cabecera del calendario
  function cabecera() {
-          tit.innerHTML=meses[mescal]+" de "+annocal;
+          tit.innerHTML=meses[mescal];
+          tit2.innerHTML=annocal;
           mesant=mescal-1; //mes anterior
           mespos=mescal+1; //mes posterior
           if (mesant<0) {mesant=11;}
@@ -70,19 +79,15 @@
                   celda=fila.getElementsByTagName("td")[j];
                   celda.innerHTML=midia;
                   //Recuperar estado inicial al cambiar de mes:
-                  celda.style.backgroundColor="#9bf5ff";
+                  celda.style.backgroundColor="#FEFAFA";
                   celda.style.color="#492736";
-                  //domingos en rojo
-                  if (j==6) {
-                     celda.style.color="#f11445";
-                     }
                   //dias restantes del mes en gris
                   if (mimes!=mescal) {
                      celda.style.color="#a0babc";
                      }
                   //destacar la fecha actual
                   if (mimes==meshoy && midia==diahoy && mianno==annohoy ) {
-                     celda.style.backgroundColor="#f0b19e";
+                     celda.style.backgroundColor="#A35152";
                      celda.innerHTML="<cite title='Fecha Actual'>"+midia+"</cite>";
                      }
                   //pasar al siguiente día
@@ -143,3 +148,20 @@
                escribirdias() //escribir tabla
                }
           }
+
+function deteccion() { // Función para la detección del dispositivo.
+    if(navigator.platform == 'iPad' || navigator.platform == 'iPhone' || navigator.platform == 'iPod') { // Si es un dispotivo Apple.
+      document.getElementById("cabecera-dispositivo").style.height = "3%"; // Mostramos la barra superior.
+      document.getElementById("contenedor-dias").style.height = "37%"; // Reajustamos el tamaño del calendario.
+    }
+}
+
+function mostrarTarea() {
+  $("#panel-tarea").fadeIn(500);
+  $("#diasc").hide();
+}
+
+function ocultarTarea() {
+  $("#diasc").fadeIn(500);
+  $("#panel-tarea").hide();
+}

@@ -1,34 +1,20 @@
-html {
-  width: 100%;
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
 
 body {
-  width: 100%;
-  height: 100%;
-  margin: 0;
+ 	width: 100%;
+  	height: 100%;
+  	margin: 0;
+  	font-family: Calibri;
 }
 
-#iniciar-sesion {
+#cabecera-dispositivo {
 	width: 100%;
-	height: 80%;
-	background-image: url("../images/fondo_pantalla.png");
-	background-repeat: no-repeat;
-	background-size: cover;
+	height: 0%;
+	background-color: white;
 }
 
-.contenedor-principal {
-	width: 90%;
-	height: 40%;
-	background-color: yellow;
-	vertical-align: center;
-}
-
-#inicio {
+#cabecera {
 	width: 100%;
-	height: 8%;
+	height: 7.7%;
 	background-color: #723180;
 	background-image: url("../images/logo.png");
 	background-repeat: no-repeat;
@@ -38,33 +24,13 @@ body {
 	border-top: 1px solid black;
 }
 
-#pie {
-  width: 100%;
-  height: 5%;
-  background-color: white;
-  position: fixed;
-  bottom: 0;
-  border-top: 1px solid black;
-  background-image: url("../images/footer_ull.png");
-  background-size: 90px 20px;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-#fotoperfil {
-  background-image: url("../images/perfil.jpg");
-  width: 150px;
-  height: 100px;
-  background-size: cover;
-}
-
-.fue {
-  font-family: 'Montserrat', sans-serif;
-}
-
-.titulo {
-  font-size: 20px;
-  font-family: 'Indie Flower', cursive;
+.contenedor-principal {
+	width: 100%;
+	height: 92%;
+	margin: 0;
+	background-image: url("../images/fondo_pantalla.png");
+	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 .contenedor-titulo {
@@ -76,22 +42,321 @@ body {
 	color: white;
 	font-family: "fuente-titulo";
 	letter-spacing: 0.07em;
-  justify-content: center;
-  align-content: center;
-  flex-direction: column;
-  border-bottom: 1px solid black;
-  font-style: normal;
-  margin-bottom: 5%;
+	display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    border-bottom: 1px solid black;
+    font-style: normal;
+    text-shadow: none;
 }
+
+/* ---------- PANTALLA INICIO SESIÓN ---------- */
+
+#iniciar-sesion {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: black;
+}
+
+#boton-atras {
+	width: 5%;
+	height: 50%;
+	background-color: #262627;
+	background-image: url("../images/atras.png");
+	background-size: 50% 60%;
+	background-position: center;
+	background-repeat: no-repeat;
+	border-right: 1px solid black;
+	vertical-align: center;
+}
+
+/* ---------- PANTALLA RECORDAR ---------- */
+
+#recordar {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: black;
+}
+
+/* ---------- PANTALLA REGISTRO ---------- */
+
+#registrar {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: black;
+}
+
+/* ---------- PANTALLA INFORMACION USUARIOS ---------- */
+
+#perfil {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	background-color: black;
+}
+
+/* ---------- PANTALLA CALENDARIO ---------- */
+
+#calendario {
+	width: 100%;
+	height: 90%;
+	margin: 0;
+	overflow-y: hidden;
+}
+
+#buscafecha {
+	width: 92%;
+	height: 40%;
+	margin-top: -6%;
+}
+
+#slider {
+	margin-left: 2%;
+}
+
+#boton-buscar {
+	background-color: #24A951;
+  	border-radius: 0.3em;
+  	color: white;
+  	margin-top: 3.5%;
+  	text-shadow: none;
+}
+
+#contenedor-antes-despues {
+	width: 92%;
+	height: 6%;
+}
+
+.boton-anterior {
+	width: 49.7%;
+	height: 100%;
+	text-align: center;
+	float: left;
+	background-color: #262627;
+	border-radius: 0.3em 0 0 0;
+	display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    font-family: sans-serif;
+    color: white;
+    text-decoration: none;
+    text-shadow: none;
+    background-image: url("../images/atras.png");
+    background-position: 5%;
+    background-repeat: no-repeat;
+    background-size: 8% 50%;
+}
+
+.boton-posterior {
+	width: 49.7%;
+	height: 100%;
+	text-align: center;
+	float: right;
+	background-color: #262627;
+	border-radius: 0 0.3em 0 0;
+	display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    font-family: sans-serif;
+    color: white;
+    text-decoration: none;
+    text-shadow: none;
+    background-image: url("../images/siguiente.png");
+    background-position: 95%;
+    background-repeat: no-repeat;
+    background-size: 8% 50%;
+}
+
+.contenedor-titulo-calendario {
+	width: 91.5%;
+	height: 8%;
+	background: rgba(169,3,41,1);
+	background: -moz-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);
+	background: -webkit-gradient(left top, right top, color-stop(0%, rgba(169,3,41,1)), color-stop(44%, rgba(143,2,34,1)), color-stop(100%, rgba(109,0,25,1)));
+	background: -webkit-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);
+	background: -o-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);
+	background: -ms-linear-gradient(left, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);
+	background: linear-gradient(to right, rgba(169,3,41,1) 0%, rgba(143,2,34,1) 44%, rgba(109,0,25,1) 100%);
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a90329', endColorstr='#6d0019', GradientType=1 );
+	border-right: 1px solid black;
+	border-left: 1px solid black;
+}
+
+.titulo-mes {
+	width: 59%;
+	height: 100%;
+	float: left;
+	display: flex;
+	text-align: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    font-family: sans-serif;
+    color: white;
+    text-decoration: none;
+    text-shadow: none;
+    font-size: 1.5em;
+    font-weight: bold;
+    letter-spacing: 0.1em;
+}
+
+.titulo-ano {
+	width: 39%;
+	height: 100%;
+	float: right;
+	display: flex;
+	text-align: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    font-family: sans-serif;
+    color: white;
+    text-decoration: none;
+    text-shadow: none;
+    font-size: 2.5em;
+    font-weight: bold;
+}
+
+#contenedor-dias {
+	width: 91.5%;
+	height: 40%;
+	background-color: #723180;
+	border: 1px solid black;
+}
+
+#diasc {
+	width: 100%;
+	height: 100%;
+}
+
+#fechaactual {
+	width: 91.5%;
+	height: 6.5%;
+	border-radius: 0 0 0.3em 0.3em;
+	background-color: #262627;
+	border-left: 1px solid black;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
+	display: flex;
+	text-align: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    color: white;
+    text-decoration: none;
+    text-shadow: none;
+    font-size: 0.7em;
+}
+
+#diasc th, #diasc td { 
+	font: normal 1.2em sans-serif; 
+	text-align: center;
+	font-weight: normal;
+	text-shadow: none;
+	text-decoration: none;
+	border: 0.5px solid black;
+	border-spacing: 0;
+}
+
+#diasc th { 
+	color: #020000; 
+	background-color: #CCC4C4; 
+	font-weight: bold;
+}
+
+#diasc td { 
+	color: #492736; 
+	background-color: #FEFAFA; 
+}
+
+#boton {
+	width: 20%;
+	height: 5%;
+	background-color: red;
+}
+
+#panel-tarea {
+	width: 100%;
+	height: 100%;
+	background-color: #CCC4C4;
+	display: flex;
+	text-align: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#insertar-tarea {
+	width: 95%;
+	height: 90%;
+	border: 2px solid black;
+	background-color: #FEFAFA; 
+	margin: 0 auto;
+	display: flex;
+    flex-direction: column;
+}
+
+#titulo-tarea {
+	width: 100%;
+	height: 15%;
+	border-bottom: 1px solid black;
+	background-color: #723180;
+}
+
+#boton-atras {
+	width: 12%;
+	height: 100%;
+	float: left;
+	background-image: url("../images/atras.png");
+	background-size: 40% 60%;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+#letras-titulo {
+	width: 87%;
+	height: 100%;
+	float: right;
+	text-decoration: none;
+	text-shadow: none;
+	font-family: sans-serif;
+	font-weight: bold;
+	display: flex;
+	text-align: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    color: white;
+}
+
+#contenedor-tarea {
+	width: 100%;
+	height: 85%;
+	background-color: #FEFAFA; 
+	display: flex;
+	text-align: center;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+#informacion-tarea {
+	width: 90%;
+	height: 90%;
+	text-align: left;
+	margin: 0 auto;
+}
+
+/* ---------- FONTS ---------- */
 
 @font-face {
     font-family: "fuente-titulo";
     src: url(../fonts/coolvetica.ttf) format("truetype");
 }
 
-#fotoperfil {
-  background-image: url("../images/perfil.jpg");
-  width: 150px;
-  height: 100px;
-  background-size: cover;
-}

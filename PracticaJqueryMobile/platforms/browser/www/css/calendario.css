@@ -6,11 +6,11 @@ h1 { text-align: center; padding: 0.5em; }
 #calendario { border: 4px double black ; max-width: 536px;
               background-color:#fffafa; text-align: center; }
 /*tabla del calendario*/
-#diasc { border: 1px solid black; border-collapse:
-         separate; border-spacing: 4px; }
-#diasc th,#diasc td { font: normal 14pt arial; width: 100px; height: 60px; }
+/*#diasc { border: 1px solid black; border-collapse:
+         separate; border-spacing: 4px; }*/
+#diasc th,#diasc td { font: normal 14pt arial; width: 12px; height: 60px; }
 #diasc th { color: #990099; background-color: #5ecdec; }
-#diasc td { color: #492736; background-color: #9bf5ff }
+#diasc td { color: #492736; background-color: #9bf5ff; }
 /*línea de la fecha actual*/
 #fechaactual { font: bold 12pt arial; padding: 0.4em }
 #fechaactual i { cursor: pointer ; }
