@@ -1,5 +1,7 @@
 <?php
 
+session_start();
+
 $server = "localhost";
 $user = "root";
 $pass = "";
@@ -12,9 +14,8 @@ or die("Ha sucedido un error inexperado en la conexion de la base de datos");
 mysql_set_charset("utf8", $con); //formato de datos utf8
 
 $conexion = mysql_select_db($bd, $con);
-
-//generamos la consulta
-$consulta = "SELECT * FROM usuarios";
+$usuario = $_SESSION['user'];
+$consulta = "SELECT * FROM usuarios WHERE correo='$usuario'";
 $sql = mysql_query($consulta);
 
 if(! $sql) {
