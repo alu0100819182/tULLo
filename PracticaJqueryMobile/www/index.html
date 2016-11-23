@@ -14,16 +14,18 @@
     <link rel="stylesheet" type="text/css" href="css/index.css">
     <link rel="stylesheet" type="text/css" href="css/general.css">
     <script src="js/jquery.js"></script>
-    <!--<script src="js/calendario.js"></script>-->
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
     <script src="js/jquery.mobile-1.4.5.min.js"></script>
     <link href="css/fuente.css" rel="stylesheet">
     <link href="css/fontawesome.css" rel="stylesheet">
     <link href="css/botones.css" rel="stylesheet">
     <script src="js/calendario.js"></script>
-    <script src="js/index.js"></script>
-    <script src="js/cordova.js"></script>
-    <script>app.initialize();</script>
+    <script src="js/sensores.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+      app.initialize();
+    </script>
     <title>Tullo</title>
 
   </head>
@@ -36,6 +38,7 @@
               <div role="main" class="ui-content" id="contenedor-botones">
                   <a id="boton-iniciar" href="#iniciar-sesion" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Iniciar sesion</a>
                   <a id="boton-registrar" href="#registrar" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Registrarse</a>
+                  <button onclick="brujula()" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Brujula</button>
               </div>
           </div>
         </div>
@@ -51,7 +54,7 @@
         <div class="contenedor-principal">
           <div class="contenedor-titulo">INICIO DE SESIÓN</div>
           <div role="main" class="ui-content">
-            <form action="http://10.159.2.227:80/PHP/sesion.php" method="POST">
+            <form action="http://10.159.1.70:80/PHP/sesion.php" method="POST">
               <label for="correo"><b>Correo</b></label>
               <input type="email" name="usermail"><br>
               <label for="contra"><b>Contraseña</b></label>
