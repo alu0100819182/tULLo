@@ -14,6 +14,9 @@
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/general.css" />
     <script src="js/jquery.js"></script>
+    <script src="js/cordova.js"></script>
+    <script>app.initialize();</script>
+    <script src="js/sensores.js"></script>
     <script src="js/index.js"></script>
     <script src="js/calendario.js"></script>
     <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
@@ -45,6 +48,7 @@
             </thead>
             <tbody></tbody>
           </table>
+          <button onClick="brujula()" value="Brujula"></button>
 
           <script type="text/javascript">
             $(document).ready(function(){
