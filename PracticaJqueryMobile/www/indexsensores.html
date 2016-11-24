@@ -31,20 +31,27 @@
   </head>
 
   <body>
-      <div data-role="page" id="principal"> <!-- PÁGINA PRINCIPAL -->
-        <div class="contenedor-pantalla">
-          <div class="contenedor-central">
-              <div class="logo"></div>
-              <div role="main" class="ui-content" id="contenedor-botones">
-                   <button onclick="brujula()" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Brujula</button>
-				   <button onclick="accelerometro()" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Accelerometro</button>
-				   <button onclick="GPS()" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">GPS</button>
-              </div>
-          </div>
-        </div>
-        <div data-role="footer" id="footer"><div class="logo-ull"></div></div>
 
-      </div><!-- FIN PÁGINA PRINCIPAL -->
+      <div data-role="page" id="recordar"> <!-- PANTALLA DE SENSORES -->
+
+  	    <div data-role="header" id="cabecera"></div>
+
+        <div class="contenedor-principal">
+  	      <div role="main" class="ui-content">
+            <button onclick="brujula()" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Brujula estatica</button>
+            <div id="uno"></div>
+            <button onclick="brujulaCont()" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Brujula continua</button>
+            <div id="dos"></div>
+            <button onclick="acelerometro()" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Acelerometro estatico</button>
+            <div id="tres"></div>
+            <button onclick="acelerometroCont()" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Acelerometro Continuo</button>
+            <div id="cuatro"></div>
+            <button onclick="GPS()" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">GPS</button>
+            <div id="quinto"></div>
+          </div>
+  	    </div>
+
+      </div>
 
   </body>
 </html>
