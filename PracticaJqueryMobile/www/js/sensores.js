@@ -22,6 +22,8 @@ function onError(error) {
   alert('ERROR ' + error.code);
 }
 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 function acelerometro(){
   navigator.accelerometer. getCurrentAcceleration(onAccept, onMistake);
 }
@@ -50,6 +52,7 @@ function onMistake(){
 	alert('onError!');
 }
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*var latInfo = 28.4836297;
 var lonInfo = -16.3226178;*/
 
@@ -57,8 +60,17 @@ function GPS() {
 	navigator.geolocation.getCurrentPosition(siRespuesta, enError);
 }
 
+function GPSCont() {
+	navigator.geolocation.watchPosition(siRespuestaa, siError, opciones);
+}
+
 function siRespuesta(position) {
   var elemento = document.getElementById("quinto");
+  elemento.innerHTML = 'Latitud: ' + position.coords.latitude + '\n' + 'Longitud: ' + position.coords.longitude;
+}
+
+function siRespuestaa(position) {
+  var elemento = document.getElementById("seis");
   elemento.innerHTML = 'Latitud: ' + position.coords.latitude + '\n' + 'Longitud: ' + position.coords.longitude;
 }
 
