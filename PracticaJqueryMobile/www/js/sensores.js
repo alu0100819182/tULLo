@@ -61,7 +61,7 @@ function GPS() {
 }
 
 function GPSCont() {
-	navigator.geolocation.watchPosition(siRespuestaa, siError, opciones);
+	navigator.geolocation.watchPosition(siRespuestaa, enError, opciones);
 }
 
 function siRespuesta(position) {
