@@ -31,82 +31,154 @@
   </head>
 
   <body>
-      <div data-role="page" id="principal"> <!-- PÁGINA PRINCIPAL -->
-        <div class="contenedor-pantalla">
-          <div class="contenedor-central">
-              <div class="logo"></div>
-              <div role="main" class="ui-content" id="contenedor-botones">
-                  <a id="boton-iniciar" href="#iniciar-sesion" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Iniciar sesion</a>
-                  <a id="boton-registrar" href="#registrar" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Registrarse</a>
-                  <a href="indexsensores.html" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Sensores</a>
-              </div>
-          </div>
-        </div>
-        <div data-role="footer" id="footer"><div class="logo-ull"></div></div>
 
-      </div><!-- FIN PÁGINA PRINCIPAL -->
-
-      <div data-role="page" id="iniciar-sesion"> <!-- PANTALLA INICIO SESIÓN -->
-
-        <div id="cabecera-dispositivo"></div>
-    	  <div data-role="header" id="cabecera"></div>
-
-        <div class="contenedor-principal">
-          <div class="contenedor-titulo">INICIO DE SESIÓN</div>
-          <div role="main" class="ui-content">
-            <form action="http://10.159.1.70:80/PHP/sesion.php" method="POST">
-              <label for="correo"><b>Correo</b></label>
-              <input type="email" name="usermail"><br>
-              <label for="contra"><b>Contraseña</b></label>
-              <input type="password" name="userpass">
-              <a href="#recordar">¿Olvidaste tu contraseña?</a><br><br>
-              <input type="submit" name="iniciar_sesion" value="Iniciar sesión"><br>
-            </form>
-    	    </div>
-        </div>
-
-      </div> <!-- FIN PANTALLA INICIO SESIÓN -->
-
-      <div data-role="page" id="registrar"> <!-- PANTALLA REGISTRO -->
+    <div data-role="page" class="jqm-demos" id="perfil" data-title="Panel fixed positioning" data-url="panel-fixed-page1"> <!-- INFORMACIÓN USUARIOS -->
 
       <div id="cabecera-dispositivo"></div>
-      <div data-role="header" id="cabecera"></div>
+      <div data-role="header" id="cabecera"><a href="#nav-panel" data-iconpos="notext"><i class="fa fa-bars" aria-hidden="true"></i></a></div>
 
+      <div class="contenedor-titulo">INFORMACIÓN USUARIOS</div>
       <div class="contenedor-principal">
-        <div class="contenedor-titulo">REGISTRO</div>
-      	<div role="main" class="ui-content">
-          <form action="http://10.159.2.227:80/PHP/registro.php" method="POST">
-            <label for="nombre"><b>Nombre<b></label>
-            <input type="text" name="nickname" required>
-            <label for="apellidos"><b>Apellidos</b></label>
-            <input type="text" name="nickape" required>
-            <label for="fecha"><b>Fecha de nacimiento</b></label>
-            <input type="date" name="fecha" required>
-            <label for="correo"><b>Correo</b></label>
-            <input type="email" name="usermail" required>
-            <label for="movil"><b>Telefono</b></label>
-            <input type="tel" name="nicktele" required>
-            <label for="contra"><b>Contraseña</b></label>
-            <input type="password" name="userpass" required><br>
-            <input type="submit" name="registrarse" value="Registrarse"><br>
-          </form>
-      	</div>
+        <div role="main" class="ui-content jqm-content jqm-fullwidth" data-position="fixed">
+          <table class="grilla" id="tablajson">
+            <thead>
+              <th>Nombre</th>
+              <th>Apellido</th>
+              <th>Correo</th>
+              <th>Fecha</th>
+              <th>Telefono</th>
+            </thead>
+            <tbody></tbody>
+          </table>
+
+        <button onclick="GPS()" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">¿ Dónde estoy ?</button>
+        <div id="localizacion"></div>
+
+          <script type="text/javascript">
+            $(document).ready(function(){
+              $("#tablajson tbody").html("");
+                $.getJSON("http://192.168.1.41:80/PHP/generarJSON.php", function(usuarios) {
+                  $.each(usuarios, function(i,usuario) {
+                    var newRow =
+                      "<tr>"
+                      +"<td>"+usuario.nombre+"</td>"
+                      +"<td>"+usuario.apellido+"</td>"
+                      +"<td>"+usuario.correo+"</td>"
+                      +"<td>"+usuario.fecha+"</td>"
+                      +"<td>"+usuario.telefono+"</td>"
+                      +"</tr>";
+                      $(newRow).appendTo("#tablajson tbody");
+                  });
+                });
+            });
+          </script>
+
+        </div>
       </div>
 
-      </div> <!-- FIN PANTALLA REGISTRO -->
+      </div> <!-- FIN INFORMACIÓN USUARIOS -->
 
-      <div data-role="page" id="recordar"> <!-- PANTALLA RECORDAR CONTRASEÑA -->
+      <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="b" id="nav-panel">
+          <ul data-role="listview">
+            <li data-icon="delete"><a href="#" data-rel="close">Cerrar menu</a></li>  
+            <li><a href="#principal">Cerrar sesion</a></li>
+            <li><a href="#agenda">Agenda</a></li>   
+            <li><a href="#calendario">Calendario</a></li>
+          </ul>
+      </div>
 
-  	    <div data-role="header" id="cabecera"></div>
+      <div data-role="page" id="editar"> <!-- EDITAR PERFIL -->
+
+          <div data-role="header" id="inicio" data-position="fixed">
+          </div>
+          <div class="contenedor-titulo">EDITA TU PERFIL</div>
+          <div role="main" class="ui-content">
+              <div id="fotoperfil"></div>
+              <p><button data-role="none">Cambiar foto</button></p>
+              <label class="fue" for="nombre">Nombre:</label>
+              <input name="name" id="nombre" value="" placeholder="Luis David Padilla Martín" type="nombre"><br>
+              <label class="fue" for="correo">Correo Institucional:</label>
+              <input name="email" id="correo" value="" placeholder="alu0100816518@ull.edu.es" type="correo"><br>
+              <label class="fue" for="fecha">Fecha de nacimiento:</label>
+              <input name="date" id="fecha" value="" placeholder="17/07/95" type="fecha">
+              <a href="#perfil" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon ui-btn-b">Guardar Cambios</a>
+          </div>
+
+          <div data-role="footer" id="pie" data-position="fixed">
+          </div>
+
+      </div>
+
+            <div data-role="page" id="calendario"> <!-- PANTALLA CALENDARIO -->
+
+        <div id="cabecera-dispositivo"></div>
+        <div data-role="header" id="cabecera"><a href="#nav-panel" data-iconpos="notext"><i class="fa fa-bars" aria-hidden="true"></i></a></div>
 
         <div class="contenedor-principal">
-  	      <div role="main" class="ui-content">
-  		      <p>Hemos enviado a tu correo tu contraseña provisional</p>
-  		      <p><a href="#iniciar-sesion" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon ui-btn-b">Volver</a></p>
-          </div>
-  	    </div>
-
-      </div> <!-- FIN PANTALLA RECORDAR CONTRASEÑA -->
+          <div class="contenedor-titulo">CALENDARIO</div>
+          <div role="main" class="ui-content" id="calendario"> <!-- CONTENEDOR DEL CALENDARIO -->
+            <div id="buscafecha"> <!-- BUSCARFECHA -->
+              <form class="ui-shadow-icon" action="#" name="buscar">
+                <p><b>Seleccione el mes</b>
+                  <select name="buscames" class="select-mes">
+                    <option value="0">ENERO</option>
+                    <option value="1">FEBRERO</option>
+                    <option value="2">MARZO</option>
+                    <option value="3">ABRIL</option>
+                    <option value="4">MAYO</option>
+                    <option value="5">JUNIO</option>
+                    <option value="6">JULIO</option>
+                    <option value="7">AGOSTO</option>
+                    <option value="8">SEPTIEMBRE</option>
+                    <option value="9">OCTUBRE</option>
+                    <option value="10">NOVIEMBRE</option>
+                    <option value="11">DICIEMBRE</option>
+                  </select>
+                  <b>Seleccione el año</b>
+                  <input type="range" name="buscaanno" id="slider" min="1900" max="2025" value="1995">
+                  <a id="boton-buscar" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-calendar" onclick="mifecha()">BUSCAR</a>
+                </p>
+              </form>
+            </div> <!-- FIN BUSCARFECHA -->
+            <div id="contenedor-antes-despues">
+              <div id="anterior" class="boton-anterior" onclick="mesantes()"></div>
+              <div id="posterior" class="boton-posterior" onclick="mesdespues()"></div>
+            </div>
+            <div class="contenedor-titulo-calendario">
+              <div id="titulos" class="titulo-mes"></div>
+              <div id="titulo-ano" class="titulo-ano"></div>
+            </div>
+            <div id="contenedor-dias">
+              <div id="panel-tarea" style="display:none">
+                <div id="insertar-tarea">
+                  <div id="titulo-tarea">
+                    <div id="boton-atras" onclick="ocultarTarea()"></div>
+                    <div id="letras-titulo">AÑADIR TAREA</div>
+                  </div>
+                  <div id="contenedor-tarea">
+                    <div id="informacion-tarea">
+                      <label for="text-basic"><b>Título</b></label>
+                      <input name="text-basic" id="input-titulo" value="" type="text">
+                      <label for="text-basic"><b>Lugar</b></label>
+                      <input name="text-basic" id="input-lugar" value="" type="text">
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <table id="diasc">
+                <tr id="fila0"><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
+                <tr id="fila1"><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td></tr>
+                <tr id="fila2"><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td></tr>
+                <tr id="fila3"><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td></tr>
+                <tr id="fila4"><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td></tr>
+                <tr id="fila5"><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td></tr>
+                <tr id="fila6"><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td></tr>
+              </table>
+            </div>
+            <div id="fechaactual"><i onclick="actualizar()"></i><b>HOY</b></div>
+          </div> <!-- FIN CONTENEDOR DEL CALENDARIO -->
+        </div>
+      </div> <!-- FIN PANTALLA CALENDARIO -->
 
   </body>
 </html>
