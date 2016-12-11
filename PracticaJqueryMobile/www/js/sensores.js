@@ -104,3 +104,25 @@ function enError(error) {
   var elemento = document.getElementById("localizacion");
   elemento.innerHTML = 'Fallo';
 }
+
+///////////////////////////////////////////////////Cámara/////////////////////////////////////////////////////////////
+
+function camera(){
+	var cameraOptions ={
+		destinationType: Camera.DestinationType.FILE_URI,
+		sourceType: Camera.PictureSourceType.CAMERA
+	};
+	navigator.camera.getPicture(cameraSuccess, cameraError, cameraOptions);
+}
+
+function cameraSuccess(imgData){
+	var container = document.getElementById("img_camPH");
+	container.src = imgData;
+}
+
+function cameraError(error){
+	alert(error);
+}
+
+
+

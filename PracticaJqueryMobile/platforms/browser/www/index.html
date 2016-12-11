@@ -84,6 +84,7 @@
             <li><a href="#principal">Cerrar sesion</a></li>
             <li><a href="#agenda">Agenda</a></li>   
             <li><a href="#calendario">Calendario</a></li>
+			<li><a href="#incidencias">Incidencias
           </ul>
       </div>
 
@@ -179,6 +180,20 @@
           </div> <!-- FIN CONTENEDOR DEL CALENDARIO -->
         </div>
       </div> <!-- FIN PANTALLA CALENDARIO -->
+	  
+	   <div data-role="page" id="incidencias"> <!-- Incidencias -->
+
+          <div data-role="header" id="incidencias" data-position="fixed"></div>
+          <div class="contenedor-titulo">Incidencias</div>
+          <div role="main" class="ui-content">
+			<button onclick="camera()" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Añade una Incidencia</button>
+			<img id="img_camPH" width="300" height = "300">
+          </div>
+
+          <div data-role="footer" id="pie" data-position="fixed">
+          </div>
+
+      </div>
 
   </body>
 </html>
