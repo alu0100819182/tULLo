@@ -186,8 +186,12 @@
           <div data-role="header" id="incidencias" data-position="fixed"></div>
           <div class="contenedor-titulo">Incidencias</div>
           <div role="main" class="ui-content">
-			<button onclick="camera()" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Añade una Incidencia</button>
-			<img id="img_camPH" width="300" height = "300">
+			<button onclick="camera()" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">foto</button>
+			<button onclick="audio()" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">audio</button>
+			<button onclick="video()" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">video</button>
+			<img id="img_camPH">
+			<audio id="micro" controls></audio>
+			<video id="video" controls></video>
           </div>
 
           <div data-role="footer" id="pie" data-position="fixed">
