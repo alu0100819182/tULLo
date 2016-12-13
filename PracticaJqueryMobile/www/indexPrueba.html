@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <title>Ejemplo</title>
+</head>
+<body>
+    <h1>Ejemplo de uso de Ajax</h1>
+    <label for="text">PALABRA</label>
+    <input type="text" id="palabra" name="caca"></input>
+    <input type="button" id="enviar-palabra" onclick="enviar($('#palabra').val()); "value="Enviar"></input>
+    <script type="text/javascript">
+    function enviar(valor_p) {
+            var parametro = { "valor" : valor_p };
+            $.ajax({
+                data: parametro,
+                type: 'post',
+                url: 'http://10.159.1.200:80/PHP/prueba.php',
+                beforeSend: function() {
+                    $("#enviar-palabra").val('Enviando...');
+                },
+                success: function() {
+                    $("#enviar-palabra").val('Enviado');
+                }
+            });
+    }
+    </script>
+</body>
+</html>
