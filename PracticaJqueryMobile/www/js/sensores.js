@@ -83,16 +83,58 @@ function GPSCont() {
 
 function siRespuesta(position) {
   var elemento = document.getElementById("localizacion");
-  if((latpruebaini >= position.coords.latitude) && (position.coords.latitude >= latpruebafin)
-    && (lonpruebaini <= position.coords.longitude) && (position.coords.longitude <= lonpruebafin)) {
-      elemento.innerHTML = 'Estas en casa' + "<br>";
+
+  if((latInfoini >= position.coords.latitude) && (position.coords.latitude >= latInfofin)
+    && (lonInfoini <= position.coords.longitude) && (position.coords.longitude <= lonInfofin)) {
+      elemento.innerHTML = 'Te encuentras en la Escuela Superior de Ingeniería y Tecnología. ¿de qué carrera quieres saber información?' + "<br>";
       var boton = document.createElement("button");
-      boton.innerHTML = 'Casa de Omar';
+      boton.innerHTML = 'Ingeniería Informática';
       boton.onclick = function MyFuncion () {
+        alert("Informatica");
+      }
+      var botonDos = document.createElement("button");
+      botonDos.innerHTML = 'Ingeniería Mecánica';
+      botonDos.onclick = function MyFuncion () {
+        alert("Hola");
+      }
+      var botonTres = document.createElement("button");
+      botonTres.innerHTML = 'Ingeniería Electrónica';
+      botonTres.onclick = function MyFuncion () {
         alert("Hola");
       }
       elemento.appendChild(boton);
+      elemento.appendChild(botonDos);
+      elemento.appendChild(botonTres);
   }
+
+  if((latfymini >= position.coords.latitude) && (position.coords.latitude >= latfymfin)
+    && (lonfymini <= position.coords.longitude) && (position.coords.longitude <= lonfymfin)) {
+      elemento.innerHTML = 'Te encuentras en la Facultad de Matemáticas y Física. ¿de qué carrera quieres saber información?' + "<br>";
+      var botonCuatro = document.createElement("button");
+      boton.innerHTML = 'Matemáticas';
+      boton.onclick = function MyFuncion () {
+        alert("Informatica");
+      }
+      var botonCinco = document.createElement("button");
+      botonDos.innerHTML = 'Física';
+      botonDos.onclick = function MyFuncion () {
+        alert("Hola");
+      }
+      elemento.appendChild(botonCuatro);
+      elemento.appendChild(botonCinco);
+  }
+
+  if((latbioini >= position.coords.latitude) && (position.coords.latitude >= latbiofin)
+    && (lonbioini <= position.coords.longitude) && (position.coords.longitude <= lonbiofin)) {
+      elemento.innerHTML = 'Te encuentras en la Facultad de Biología. ¿de qué carrera quieres saber información?' + "<br>";
+      var botonSeis = document.createElement("button");
+      boton.innerHTML = 'Biología';
+      boton.onclick = function MyFuncion () {
+        alert("Informatica");
+      }
+      elemento.appendChild(botonSeis);
+  }
+
 }
 
 function siRespuestaa(position) {
@@ -138,7 +180,7 @@ function audioSuccess(mediaFiles){
         path = mediaFiles[i].fullPath;
 		var container = document.getElementById("micro");
 		container.src = path;
-      
+
     }
 }
 
@@ -166,5 +208,3 @@ function captureSuccess(mediaFiles) {
 function captureError(error) {
     navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
 }
-
-

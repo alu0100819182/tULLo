@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+<html>
+
+  <head>
+
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline'; style-src 'self' 'unsafe-inline'; media-src *" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/general.css">
+    <!--<script src="js/jquery.js"></script>-->
+    <script src="js/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css">
+    <script src="js/jquery.mobile-1.4.5.min.js"></script>
+    <link href="css/fuente.css" rel="stylesheet">
+    <link href="css/fontawesome.css" rel="stylesheet">
+    <link href="css/botones.css" rel="stylesheet">
+    <script src="js/calendario.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script src="js/sensores.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript">
+      app.initialize();
+    </script>
+    <title>Tullo</title>
+
+  </head>
+
+  <body>
+      <div data-role="page" id="principal"> <!-- PÁGINA PRINCIPAL -->
+        <div class="contenedor-pantalla">
+          <div class="contenedor-central">
+              <div class="logo"></div>
+              <div role="main" class="ui-content" id="contenedor-botones">
+                  <a id="boton-iniciar" href="#iniciar-sesion" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Iniciar sesion</a>
+                  <a id="boton-registrar" href="#registrar" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">Registrarse</a>
+              </div>
+          </div>
+        </div>
+        <div data-role="footer" id="footer"><div class="logo-ull"></div></div>
+
+      </div><!-- FIN PÁGINA PRINCIPAL -->
+
+      <div data-role="page" id="iniciar-sesion"> <!-- PANTALLA INICIO SESIÓN -->
+
+        <div id="cabecera-dispositivo"></div>
+    	  <div data-role="header" id="cabecera"></div>
+
+        <div class="contenedor-principal">
+          <div class="contenedor-titulo">INICIO DE SESIÓN</div>
+          <div role="main" class="ui-content">
+
+              <label for="correo"><b>Correo</b></label>
+              <input id="email" type="email"><br>
+              <label for="contra"><b>Contraseña</b></label>
+              <input id="pass" type="password">
+
+              <a href="#recordar">¿Olvidaste tu contraseña?</a><br><br>
+              <input id="enviar" type="button" onclick="enviar($('#email').val(), $('#pass').val())"; value="Iniciar sesión"><br>
+
+              <script type="text/javascript">
+              function enviar(valor_p, valor_x) {
+                    var parametro = {
+                      "valor" : valor_p,
+                      "valor2" : valor_x
+                    };
+                    $.ajax({
+                          data: parametro,
+                          type: 'post',
+                          url: 'http://10.159.1.200:80/PHP/sesion.php',
+                          beforeSend: function() {
+                              $("#enviar").val('Enviando...');
+                          },
+                          success: function() {
+                              window.location.href = "http://10.159.1.200:3000/indexDos.html";
+                          }
+                      });
+              }
+              </script>
+    	    </div>
+        </div>
+
+      </div> <!-- FIN PANTALLA INICIO SESIÓN -->
+
+      <div data-role="page" id="registrar"> <!-- PANTALLA REGISTRO -->
+
+      <div id="cabecera-dispositivo"></div>
+      <div data-role="header" id="cabecera"></div>
+
+      <div class="contenedor-principal">
+        <div class="contenedor-titulo">REGISTRO</div>
+      	<div role="main" class="ui-content">
+            <label for="nombre"><b>Nombre<b></label>
+            <input type="text" id="nickname" required>
+            <label for="apellidos"><b>Apellidos</b></label>
+            <input type="text" id="nickape" required>
+            <label for="fecha"><b>Fecha de nacimiento</b></label>
+            <input type="date" id="fecha" required>
+            <label for="correo"><b>Correo</b></label>
+            <input type="email" id="usermail" required>
+            <label for="movil"><b>Telefono</b></label>
+            <input type="tel" id="nicktele" required>
+            <label for="contra"><b>Contraseña</b></label>
+            <input type="password" id="userpass" required><br>
+            <input type="button" id="registrarse" value="Registrarse"
+            onclick="enviar($('#nickname').val(), $('#nickape').val(),
+            $('#fecha').val(), $('#usermail').val(), $('#nicktele').val(),
+            $('#userpass').val())";><br>
+
+            <script type="text/javascript">
+            function enviar(valor_p, valor_x, valor_y, valor_z, valor_w, valor_t) {
+                    var parametro = {
+                      "valor" : valor_p,
+                      "valor2" : valor_x,
+                      "valor3" : valor_y,
+                      "valor4" : valor_z,
+                      "valor5" : valor_w,
+                      "valor6" : valor_t
+                    };
+                    $.ajax({
+                        data: parametro,
+                        type: 'post',
+                        url: 'http://10.159.1.200:80/PHP/registro.php',
+                        beforeSend: function() {
+                            $("#registrarse").val('Enviando...');
+                        },
+                        success: function() {
+                          window.location.href = "http://10.159.1.200:3000/index.html";
+                        }
+                    });
+            }
+            </script>
+
+      	</div>
+      </div>
+
+      </div> <!-- FIN PANTALLA REGISTRO -->
+
+      <div data-role="page" id="recordar"> <!-- PANTALLA RECORDAR CONTRASEÑA -->
+
+  	    <div data-role="header" id="cabecera"></div>
+
+        <div class="contenedor-principal">
+  	      <div role="main" class="ui-content">
+  		      <p>Hemos enviado a tu correo tu contraseña provisional</p>
+  		      <p><a href="#iniciar-sesion" class="ui-btn ui-icon-delete ui-btn-icon-left ui-shadow-icon ui-btn-b">Volver</a></p>
+          </div>
+  	    </div>
+
+      </div> <!-- FIN PANTALLA RECORDAR CONTRASEÑA -->
+
+  </body>
+</html>
