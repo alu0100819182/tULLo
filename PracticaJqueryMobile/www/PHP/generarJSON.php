@@ -14,13 +14,10 @@ or die("Ha sucedido un error inexperado en la conexion de la base de datos");
 mysql_set_charset("utf8", $con); //formato de datos utf8
 $conexion = mysql_select_db($bd, $con);
 
-//generamos la consulta
-/*$usuario = $_SESSION['user'];
-session_destroy();
- WHERE correo='$usuario'
- */
+/*$usuario = $_SESSION['usuario'];
+echo "$usuario";*/
 
- 
+//generamos la consulta
 $consulta = "SELECT * FROM usuarios";
 
 $sql = mysql_query($consulta);

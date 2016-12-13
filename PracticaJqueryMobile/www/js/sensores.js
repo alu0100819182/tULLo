@@ -170,41 +170,6 @@ function cameraError(error){
 
 //////////////////////////////////////////////////Audio//////////////////////////////////////////////////////////////////
 
-function audio(){
-	navigator.device.capture.captureAudio(audioSuccess, audioError, {limit: 2});
-}
-
-function audioSuccess(mediaFiles){
-	var i, path, len;
-    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-        path = mediaFiles[i].fullPath;
-		var container = document.getElementById("micro");
-		container.src = path;
-
-    }
-}
-
-function audioError(error){
-	navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
-}
-
-/////////////////////////////////////////////////Video/////////////////////////////////////////////////////////////////////////
-
-function video(){
-	navigator.device.capture.captureVideo(captureSuccess, captureError, {limit:2});
-}
-
-function captureSuccess(mediaFiles) {
-    var i, path, len;
-    for (i = 0, len = mediaFiles.length; i < len; i += 1) {
-        path = mediaFiles[i].fullPath;
-		var container = document.getElementById("video");
-		container.src = path;
-		container.width = 300
-		container.height = 300
-    }
-}
-
-function captureError(error) {
-    navigator.notification.alert('Error code: ' + error.code, null, 'Capture Error');
+function vibrador() {
+  navigator.vibrate(1000);
 }
