@@ -32,6 +32,15 @@
   </head>
 
   <body>
+
+    <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="b" id="nav-panel">
+        <ul data-role="listview">
+          <li data-icon="delete"><a href="#" data-rel="close">Cerrar menu</a></li>  
+          <li><a href="#horariosinf">Horarios</a></li>
+          <li><a href="#horariosmat">Horarios</a></li>
+        </ul>
+    </div>
+
       <div data-role="page" id="principal"> <!-- PÁGINA PRINCIPAL -->
         <div class="contenedor-pantalla">
           <div class="contenedor-central">
@@ -153,170 +162,5 @@
   	    </div>
 
       </div> <!-- FIN PANTALLA RECORDAR CONTRASEÑA -->
-	  
-	    <div data-role="page" id="horariosinf"> <!-- Horariosinfo -->
-		<div data-role="collapsibleset" data-filter="true" data-inset="true" id="collapsiblesetForFilter" data-input="#searchForCollapsibleSet">
-        	<div data-role="collapsible" data-filtertext="Primero">
-            	<h3>Primero</h3>
-            	<ul data-role="listview" data-inset="false">
-                	<li><a href="#primeroInfM">Primer Cuatrimestre Mañana</a></li>
-					<li><a href="#primeroInfT">Primer Cuatrimestre Tarde</a></li>
-                	<li><a href="#primeroInfM2">Segundo Cuatrimestre Mañana</a></li>
-					<li><a href="#primeroInfT2">Segundo Cuatrimestre Tarde</a></li>
-            	</ul>
-        </div>
-        <div data-role="collapsible" data-filtertext="Segundo">
-            <h3>Segundo</h3>
-            <ul data-role="listview" data-inset="false">
-            	<li><a href="#segundoInfM">Primer Cuatrimestre Mañana</a></li>
-				<li><a href="#segundoInfT">Primer Cuatrimestre Tarde</a></li>
-                <li><a href="#segundoInfM2">Segundo Cuatrimestre Mañana</a></li>
-				<li><a href="#segundoInfT2">Segundo Cuatrimestre Tarde</a></li>
-            </ul>
-        </div>
-        <div data-role="collapsible" data-filtertext="Tercero">
-            <h3>Tercero</h3>
-            <ul data-role="listview" data-inset="false">
-            	<li><a href="#terceroInfM">Primer Cuatrimestre Mañana</a></li>
-				<li><a href="#terceroInfT">Primer Cuatrimestre Tarde</a></li>
-                <li><a href="#terceroInfM2">Segundo Cuatrimestre</a></li>
-            </ul>
-        </div>
-		 <div data-role="collapsible" data-filtertext="Cuarto">
-            <h3>Cuarto</h3>
-            <ul data-role="listview" data-inset="false">
-            	<li><a href="#cuartoInfM">Primer Cuatrimestre</a></li>
-                <li><a href="#cuartoInfM2">Segundo Cuatrimestre</a></li>
-            </ul>
-        </div>
-      </div>
-	  </div>
-	  
-	  <!----------------------------------------------------------------- Horarios de Informatica ------------------------------------------------>
-	  <!----------------------------------------------------------------- Primero ------------------------------------------------>
-	  <div data-role="page" id="primeroInfM"> 
-		
-          <div data-role="header" id="primeroInfM" data-position="fixed"></div>
-				<div>Mañana</div>
-				<img src="C:\wamp\www\tULLo\PracticaJqueryMobile\www\images\horarios\Informatica\PrimerCuatrimestre\Primero\HorarioM.png"></img>
-          <div data-role="footer" id="pie" data-position="fixed">
-          </div>
-
-      </div>
-	   <div data-role="page" id="primeroInfT"> 
-		
-          <div data-role="header" id="primeroInfT" data-position="fixed"></div>
-				<div>Tarde</div>
-				<img src="C:\wamp\www\tULLo\PracticaJqueryMobile\www\images\horarios\Informatica\PrimerCuatrimestre\Primero\HorarioM.png"></img>
-          <div data-role="footer" id="pie" data-position="fixed">
-          </div>
-
-      </div>
-	   <div data-role="page" id="primeroInfM2"> 
-		
-          <div data-role="header" id="primeroInfM2" data-position="fixed"></div>
-				<div>Mañana</div>
-				<img src="C:\wamp\www\tULLo\PracticaJqueryMobile\www\images\horarios\Informatica\SegundoCuatrimestre\Primero\HorarioT.png"></img>
-          <div data-role="footer" id="pie" data-position="fixed">
-          </div>
-
-      </div>
-	  
-	  <div data-role="page" id="primeroInfT2"> 
-		
-          <div data-role="header" id="primeroInfT2" data-position="fixed"></div>
-				<div>Tarde</div>
-				<img src="C:\wamp\www\tULLo\PracticaJqueryMobile\www\images\horarios\Informatica\SegundoCuatrimestre\Primero\HorarioT.png"></img>
-          <div data-role="footer" id="pie" data-position="fixed">
-          </div>
-
-      </div>
-	  
-	  <!----------------------------------------------------------------- Segundo ------------------------------------------------>
-	  <div data-role="page" id="segundoInfM"> 
-		
-          <div data-role="header" id="segundoInfM" data-position="fixed"></div>
-				<div>Mañana</div>
-				<img src="C:\wamp\www\tULLo\PracticaJqueryMobile\www\images\horarios\Informatica\PrimerCuatrimestre\Segundo\HorarioM.png"></img>
-          <div data-role="footer" id="pie" data-position="fixed">
-          </div>
-
-      </div>
-	   <div data-role="page" id="segundoInfT"> 
-		
-          <div data-role="header" id="segundoInfT" data-position="fixed"></div>
-				<div>Tarde</div>
-				<img src="C:\wamp\www\tULLo\PracticaJqueryMobile\www\images\horarios\Informatica\PrimerCuatrimestre\Segundo\HorarioT.png"></img>
-          <div data-role="footer" id="pie" data-position="fixed">
-          </div>
-
-      </div>
-	   <div data-role="page" id="segundoInfM2"> 
-		
-          <div data-role="header" id="segundoInfM2" data-position="fixed"></div>
-				<div>Mañana</div>
-				<img src="C:\wamp\www\tULLo\PracticaJqueryMobile\www\images\horarios\Informatica\SegundoCuatrimestre\Segundo\HorarioM.png"></img>
-          <div data-role="footer" id="pie" data-position="fixed">
-          </div>
-
-      </div>
-	  
-	  <div data-role="page" id="segundoInfT2"> 
-		
-          <div data-role="header" id="segundoInfT2" data-position="fixed"></div>
-				<div>Tarde</div>
-				<img src="C:\wamp\www\tULLo\PracticaJqueryMobile\www\images\horarios\Informatica\SegundoCuatrimestre\Segundo\HorarioT.png"></img>
-          <div data-role="footer" id="pie" data-position="fixed">
-          </div>
-
-      </div>
-	  
-	  <!----------------------------------------------------------------- Tercero ------------------------------------------------>
-	  <div data-role="page" id="terceroInfM"> 
-		
-          <div data-role="header" id="terceroInfM" data-position="fixed"></div>
-				<div>Mañana</div>
-				<img src="C:\wamp\www\tULLo\PracticaJqueryMobile\www\images\horarios\Informatica\PrimerCuatrimestre\Tercero\HorarioM.png"></img>
-          <div data-role="footer" id="pie" data-position="fixed">
-          </div>
-
-      </div>
-	  
-	   <div data-role="page" id="terceroInfT"> 
-		
-          <div data-role="header" id="terceroInfT" data-position="fixed"></div>
-				<div>Tarde</div>
-				<img src="C:\wamp\www\tULLo\PracticaJqueryMobile\www\images\horarios\Informatica\PrimerCuatrimestre\Tercero\HorarioT.png"></img>
-          <div data-role="footer" id="pie" data-position="fixed">
-          </div>
-
-      </div>
-	   <div data-role="page" id="terceroInfM2"> 
-		
-          <div data-role="header" id="terceroInfM2" data-position="fixed"></div>
-				<img src="C:\wamp\www\tULLo\PracticaJqueryMobile\www\images\horarios\Informatica\SegundoCuatrimestre\Tercero\HorarioM.png"></img>
-          <div data-role="footer" id="pie" data-position="fixed">
-          </div>
-
-      </div>
-	   
-	  <!----------------------------------------------------------------- Cuarto ------------------------------------------------>
-	  <div data-role="page" id="cuartoInfM"> 
-		
-          <div data-role="header" id="cuartoInfM" data-position="fixed"></div>
-				<img src="C:\wamp\www\tULLo\PracticaJqueryMobile\www\images\horarios\Informatica\PrimerCuatrimestre\Cuarto\HorarioM.png"></img>
-          <div data-role="footer" id="pie" data-position="fixed">
-          </div>
-
-      </div>
-	   <div data-role="page" id="cuartoInfM2"> 
-		
-          <div data-role="header" id="cuartoInfM2" data-position="fixed"></div>
-				<img src="C:\wamp\www\tULLo\PracticaJqueryMobile\www\images\horarios\Informatica\SegundoCuatrimestre\Cuarto\HorarioM.png"></img>
-          <div data-role="footer" id="pie" data-position="fixed">
-          </div>
-
-      </div>
-
   </body>
 </html>
