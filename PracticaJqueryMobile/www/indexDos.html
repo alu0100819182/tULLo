@@ -34,6 +34,17 @@
 
     <div data-role="page" class="jqm-demos" id="perfil" data-title="Panel fixed positioning" data-url="panel-fixed-page1"> <!-- INFORMACIÓN USUARIOS -->
 
+      <div data-role="panel" data-position="left" data-display="overlay" data-theme="b" id="nav-panel">
+         <ul data-role="listview">
+          <li><a href="#perfil">Perfil Personal</a></li>
+          <li><a href="#calendario">Calendario</a></li>
+            <li><a href="#incidencias">Incidencias</a></li>
+          <li><a href="#horario">Horario</a></li> 
+          <li data-icon="delete"><a href="#" data-rel="close">Cerrar Menú</a></li>  
+          <li><a href="#principal">Cerrar Sesión</a></li>  
+        </ul>
+      </div>
+
       <div id="cabecera-dispositivo"></div>
       <div data-role="header" id="cabecera"><a href="#nav-panel" data-iconpos="notext"><i class="fa fa-bars" aria-hidden="true"></i></a></div>
 
@@ -79,20 +90,18 @@
 
       </div> <!-- FIN INFORMACIÓN USUARIOS -->
 
-      <div data-role="panel" data-position-fixed="true" data-display="push" data-theme="b" id="nav-panel">
-          <ul data-role="listview">
-            <li data-icon="delete"><a href="#" data-rel="close">Cerrar menu</a></li>  
-            <li><a href="#principal">Cerrar sesion</a></li>
-            <li><a href="#agenda">Agenda</a></li>   
-            <li><a href="#calendario">Calendario</a></li>
-			      <li><a href="#horariosinf">Horariosinf</a></li>
-            <li><a href="#horariosmat">Horariosmat</a></li>
-            <li><a href="#horariosbio">Horariosbio</a></li>
-
-          </ul>
-      </div>
-
       <div data-role="page" id="editar"> <!-- EDITAR PERFIL -->
+
+        <div data-role="panel" data-position="left" data-display="overlay" data-theme="b" id="nav-panel">
+          <ul data-role="listview">
+            <li><a href="#perfil">Perfil Personal</a></li>
+            <li><a href="#calendario">Calendario</a></li>
+            <li><a href="#incidencias">Incidencias</a></li>
+            <li><a href="#horario">Horario</a></li> 
+            <li data-icon="delete"><a href="#" data-rel="close">Cerrar Menú</a></li>  
+            <li><a href="#principal">Cerrar Sesión</a></li>  
+          </ul>
+        </div>
 
           <div data-role="header" id="inicio" data-position="fixed">
           </div>
@@ -114,7 +123,18 @@
 
       </div>
 
-            <div data-role="page" id="calendario"> <!-- PANTALLA CALENDARIO -->
+      <div data-role="page" id="calendario"> <!-- PANTALLA CALENDARIO -->
+
+        <div data-role="panel" data-position="left" data-display="overlay" data-theme="b" id="nav-panel">
+          <ul data-role="listview">
+            <li><a href="#perfil">Perfil Personal</a></li>
+            <li><a href="#calendario">Calendario</a></li>
+            <li><a href="#incidencias">Incidencias</a></li>
+            <li><a href="#horario">Horario</a></li> 
+            <li data-icon="delete"><a href="#" data-rel="close">Cerrar Menú</a></li>  
+            <li><a href="#principal">Cerrar Sesión</a></li>  
+          </ul>
+        </div>
 
         <div id="cabecera-dispositivo"></div>
         <div data-role="header" id="cabecera"><a href="#nav-panel" data-iconpos="notext"><i class="fa fa-bars" aria-hidden="true"></i></a></div>
@@ -185,7 +205,18 @@
         </div>
       </div> <!-- FIN PANTALLA CALENDARIO -->
 
-	   <div data-role="page" id="incidencias"> <!-- Incidencias -->
+	   <div data-role="page" id="incidencias"> <!-- PANTALLA INCIDENCIAS -->
+
+        <div data-role="panel" data-position="left" data-display="overlay" data-theme="b" id="nav-panel">
+          <ul data-role="listview">
+            <li><a href="#perfil">Perfil Personal</a></li>
+            <li><a href="#calendario">Calendario</a></li>
+            <li><a href="#incidencias">Incidencias</a></li>
+            <li><a href="#horario">Horario</a></li> 
+            <li data-icon="delete"><a href="#" data-rel="close">Cerrar Menú</a></li>  
+            <li><a href="#principal">Cerrar Sesión</a></li>  
+          </ul>
+        </div>
 
           <div data-role="header" id="incidencias" data-position="fixed"></div>
           <div class="contenedor-titulo">Incidencias</div>
