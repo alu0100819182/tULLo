@@ -51,6 +51,10 @@ body {
     text-shadow: none;
 }
 
+#cerrar-sesion-nav {
+	background-color: #A62D2D;
+}
+
 /* ---------- PANTALLA INICIO SESIÓN ---------- */
 
 #iniciar-sesion {
