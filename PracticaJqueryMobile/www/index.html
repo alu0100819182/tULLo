@@ -62,10 +62,10 @@
               <input id="pass" type="password">
 
               <a href="#recordar">¿Olvidaste tu contraseña?</a><br><br>
-              <input id="enviar" type="button" onclick="enviar($('#email').val(), $('#pass').val())"; value="Iniciar sesión"><br>
+              <input id="enviar" type="button" onclick="enviarDos($('#email').val(), $('#pass').val())"; value="Iniciar sesión"><br>
 
               <script type="text/javascript">
-              function enviar(valor_p, valor_x) {
+              function enviarDos(valor_p, valor_x) {
                     var parametro = {
                       "valor" : valor_p,
                       "valor2" : valor_x
@@ -73,14 +73,22 @@
                     $.ajax({
                           data: parametro,
                           type: 'post',
-                          url: 'http://10.159.1.187:80/PHP/sesion.php',
+                          url: 'http://192.168.1.41:80/PHP/sesion.php',
                           beforeSend: function() {
                               $("#enviar").val('Enviando...');
                           },
                           success: function() {
-                              window.location.href = "http://10.159.1.200:3000/indexDos.html";
-                          }
-                      });
+                              $("#enviar").val('Enviado...');;
+                          },
+                          timeout:3000
+                        }).done(function(){
+                            window.location = "http://192.168.1.41:3000/indexDos.html";
+                          }).fail(function(jqXHR, textStatus){
+                            if(textStatus === 'timeout')
+                            {
+                                vibrador();
+                            }
+                          });
               }
               </script>
     	    </div>
@@ -126,7 +134,7 @@
                     $.ajax({
                         data: parametro,
                         type: 'post',
-                        url: 'http://10.159.1.187:80/PHP/registro.php',
+                        url: 'http://192.168.1.41:80/PHP/registro.php',
                         beforeSend: function() {
                             $("#registrarse").val('Enviando...');
                         },
@@ -134,15 +142,14 @@
                             $("#registrarse").val('Enviado...');;
                         },
                         timeout:3000 //3 second timeout
-                        }).done(function(){
-                          window.location = "http://10.159.1.187:3000/index.html";
-                        });
+                      }).done(function(){
+                          window.location = "http://192.168.1.41:3000/index.html";
                         }).fail(function(jqXHR, textStatus){
                           if(textStatus === 'timeout')
                           {
                               vibrador();
                           }
-                    });
+                        });
             }
             </script>
 

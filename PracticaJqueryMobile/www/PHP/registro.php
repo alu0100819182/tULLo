@@ -28,12 +28,11 @@
       }
       $count = mysql_num_rows($resultado);
       $row = mysql_fetch_array($resultado);
+
 	    if($count == 1) {
-        echo '<script type="text/javascript">'
-              , 'vibrador();'
-              , '</script>'
-              ;
+        sleep(5);
 	    }
+
       else {
 		      $sql = "INSERT INTO `tullo`.`usuarios` (`nombre`, `apellidos`, `correo`, `fecha_nacimiento`, `telefono`, `contrasena`)
           VALUES ('$nombre', '$apellidos', '$correo', '$fecha', '$telefono', '$contrasena')";
@@ -42,7 +41,6 @@
             echo "La conexion no se logro".mysql_error();
             die;
           }
-          header("location:http://10.159.1.200:3000/index.html");
 	    }
 
 ?>

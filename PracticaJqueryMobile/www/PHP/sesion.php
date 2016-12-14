@@ -31,14 +31,14 @@
         $row = mysql_fetch_array($resultado);
 
           if($count == 1) {
-            header("location:http://10.159.1.200:3000//indexDos.html");
+            sleep(1);
           }
           else {
-            echo "No se pudo iniciar sesion porque no estas registrado";
+            sleep(5);
           }
     }
     else {
-      echo "Rellena los campos";
+      sleep(5);
     }
 
     ?>
