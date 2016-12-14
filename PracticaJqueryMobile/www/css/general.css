@@ -55,6 +55,11 @@ body {
 	background-color: #A62D2D;
 }
 
+#inav {
+	background-color: #1D201C;
+	margin-top: 1%;
+}
+
 /* ---------- PANTALLA INICIO SESIÓN ---------- */
 
 #iniciar-sesion {
@@ -360,6 +365,15 @@ body {
 /* ---------- PANTALLA DE INCIDENCIAS ---------- */
 
 #incidencias {
+	width: 100%;
+	height: 90%;
+	margin: 0;
+	overflow-y: hidden;
+}
+
+/* ---------- PANTALLA DE HORARIOS DE INFORMÁTICA ---------- */
+
+#horarios-informatica {
 	width: 100%;
 	height: 90%;
 	margin: 0;
