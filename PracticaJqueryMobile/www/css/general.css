@@ -353,6 +353,15 @@ body {
 	margin: 0 auto;
 }
 
+/* ---------- PANTALLA DE INCIDENCIAS ---------- */
+
+#incidencias {
+	width: 100%;
+	height: 90%;
+	margin: 0;
+	overflow-y: hidden;
+}
+
 /* ---------- FONTS ---------- */
 
 @font-face {
