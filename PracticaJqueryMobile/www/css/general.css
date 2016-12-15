@@ -387,12 +387,20 @@ body {
 	background-image: url("../images/fondo_pantalla_informatica.png");
 	background-size: cover;
 	background-repeat: no-repeat;
+	padding-top: 7%;
 }
 
 .contenedor-accesos {
 	width: 90%;
 	height: 70%;
 	margin: 0 auto;
+	overflow-y: scroll;
+}
+
+.contenedor-horarios {
+	width: 100%;
+	height: 100%;
+	background-color: blue;
 }
 
 #divider {
@@ -407,6 +415,142 @@ body {
 #list-view {
 	margin-top: -8%;
 	margin-bottom: -14.5%;
+}
+
+/* ---------- PANTALLA DE HORARIOS DE INFORMÁTICA ---------- */
+
+#horarios-matematicas {
+	width: 100%;
+	height: 90%;
+	margin: 0;
+	overflow-y: hidden;
+}
+
+.contenedor-principal-matematicas {
+	width: 100%;
+	height: 92%;
+	margin: 0;
+	background-image: url("../images/fondo_pantalla_matematicas.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding-top: 7%;
+}
+
+.contenedor-accesos {
+	width: 90%;
+	height: 70%;
+	margin: 0 auto;
+	overflow-y: scroll;
+}
+
+.contenedor-horarios {
+	width: 100%;
+	height: 100%;
+	background-color: blue;
+}
+
+/* ---------- PANTALLA DE HORARIOS DE INFORMÁTICA ---------- */
+
+#horarios-biologia {
+	width: 100%;
+	height: 90%;
+	margin: 0;
+	overflow-y: hidden;
+}
+
+.contenedor-principal-biologia {
+	width: 100%;
+	height: 92%;
+	margin: 0;
+	background-image: url("../images/fondo_pantalla_biologia.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding-top: 7%;
+}
+
+.contenedor-accesos {
+	width: 90%;
+	height: 70%;
+	margin: 0 auto;
+	overflow-y: scroll;
+}
+
+.contenedor-horarios {
+	width: 100%;
+	height: 100%;
+	background-color: blue;
+}
+
+/* ---------- PANTALLAS HORARIOS ---------- */
+
+#pantalla-horarios-informatica {
+	width: 100%;
+	height: 90%;
+	margin: 0;
+	overflow-y: hidden;
+}
+
+#pantalla-horarios-matematicas {
+	width: 100%;
+	height: 90%;
+	margin: 0;
+	overflow-y: hidden;
+}
+
+#pantalla-horarios-biologia {
+	width: 100%;
+	height: 90%;
+	margin: 0;
+	overflow-y: hidden;
+}
+
+.contenedor-principal-horarios {
+	width: 100%;
+	height: 92%;
+	margin: 0;
+	background-image: url("../images/fondo_pantalla.png");
+	background-size: cover;
+	background-repeat: no-repeat;
+	padding-top: 2.5%;
+}
+
+.contenedor-horario-informatica {
+	width: 95%;
+	height: 95%;
+	margin: 0 auto;
+	border: 1px solid black;
+	border-radius: 0.3em;
+	background-color: white;
+	background-image: url("../images/horarios/Informatica/PrimerCuatrimestre/Primero/HorarioM.png");
+	background-size: 95% 95%;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.contenedor-horario-matematicas {
+	width: 95%;
+	height: 95%;
+	margin: 0 auto;
+	border: 1px solid black;
+	border-radius: 0.3em;
+	background-color: white;
+	background-image: url("../images/horarios/Matematicas/PrimerCuatrimestre/Primero/HorarioM.png");
+	background-size: 95% 45%;
+	background-position: center;
+	background-repeat: no-repeat;
+}
+
+.contenedor-horario-biologia {
+	width: 95%;
+	height: 95%;
+	margin: 0 auto;
+	border: 1px solid black;
+	border-radius: 0.3em;
+	background-color: white;
+	background-image: url("../images/horarios/Biologia/PrimerCuatrimestre/Primero/HorarioM.png");
+	background-size: 95% 80%;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 
 /* ---------- FONTS ---------- */
