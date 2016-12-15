@@ -82,25 +82,23 @@ function GPSCont() {
 }
 
 function siRespuesta(position) {
-  var elemento = document.getElementById("localizacion");
 
   if((latInfoini >= position.coords.latitude) && (position.coords.latitude >= latInfofin)
     && (lonInfoini <= position.coords.longitude) && (position.coords.longitude <= lonInfofin)) {
-        alert("Hola");
-        document.getElementsByClassName("horario").href = "#horarios-informatica";
-        document.getElementsByClassName("incidencia").href = "#horarios-informatica";
+        document.getElementById("horario").href = "#horarios-informatica";
+        document.getElementById("incidencia").href = "#horarios-informatica";
     }
 
   if((latfymini >= position.coords.latitude) && (position.coords.latitude >= latfymfin)
     && (lonfymini <= position.coords.longitude) && (position.coords.longitude <= lonfymfin)) {
-      document.getElementsByClassName("horario").href = "#horarios-matematicas";
-      document.getElementsByClassName("incidencia").href = "#horarios-matematicas";
+      document.getElementById("horario").href = "#horarios-matematicas";
+      document.getElementById("incidencia").href = "#horarios-matematicas";
   }
 
   if((latbioini >= position.coords.latitude) && (position.coords.latitude >= latbiofin)
     && (lonbioini <= position.coords.longitude) && (position.coords.longitude <= lonbiofin)) {
-      document.getElementsByClassName("horario").href = "#horarios-biologia";
-      document.getElementsByClassName("incidencia").href = "#horarios-biologia";
+      document.getElementById("horario").href = "#horarios-biologia";
+      document.getElementById("incidencia").href = "#horarios-biologia";
   }
 }
 
@@ -138,4 +136,49 @@ function cameraError(error) {
 
 function vibrador() {
   navigator.vibrate(2000);
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+var fichero;
+
+function ObtenerFoto()
+{
+  navigator.camera.getPicture(correcto, error, { quality: 100, allowEdit: false});
+}
+
+function correcto(rutaImagen) {
+  document.getElementById("imgCamara").src = rutaImagen;
+  fichero = rutaImagen;
+}
+
+function error(message) {
+  alert ("Error =>" + message);
+}
+
+function enviarDatos ()
+{
+  var options = new FileUploadOptions();
+  options.fileKey = "file";
+  options.fileName = fichero.substr(fichero.lastIndexOf('/') + 1);
+  options.mimeType = "image/jpeg";
+  options.chunkedMode = true;
+
+  var params = new Object();
+  params.descripcion = document.getElementById("descripcion").value;
+
+  options.params = params;
+  var ft = new FileTransfer();
+  var percentageUpload = 0;
+  ft.upload(fichero, "http://192.168.1.41:80/PHP/imagen.php", win, fail, options);
+}
+
+function win(r) {
+  alert("Respuesta servidor" + r.response);
+}
+
+function fail(error) {
+  alert("upload error source" + error.source);
+  alert("upload error target" + error.target);
+  alert("An error has ocurred: Code = " + error.code);
 }

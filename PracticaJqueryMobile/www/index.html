@@ -74,7 +74,7 @@
                     $.ajax({
                           data: parametro,
                           type: 'post',
-                          url: 'http://10.159.1.187:80/PHP/sesion.php',
+                          url: 'http://192.168.1.41:80/PHP/sesion.php',
                           beforeSend: function() {
                               $("#enviar").innerHTML = "";
                               $("#enviar").text("Comprobando usuario...");
@@ -150,14 +150,14 @@
                     $.ajax({
                         data: parametro,
                         type: 'post',
-                        url: 'http://10.159.1.187:80/PHP/registro.php',
+                        url: 'http://192.168.1.41:80/PHP/registro.php',
                         beforeSend: function() {
                             $("#registrarse").val('Enviando...');
                         },
                         success: function() {
                             $("#registrarse").val('Enviado...');;
                         },
-                        timeout:3000 //3 second timeout
+                        timeout:4000 //3 second timeout
                         }).done(function(){
                           $("#color").css({'background': 'green'});
                         }).fail(function(jqXHR, textStatus){
@@ -181,8 +181,8 @@
            <ul data-role="listview">
             <li data-icon="user"><a href="#perfil">Perfil Personal</a></li>
             <li data-icon="calendar"><a href="#calendario">Calendario</a></li>
-            <li data-icon="alert"><a class="incidencia" onclick="GPS();" href="#" >Incidencias</a></li>
-            <li data-icon="clock"><a class="horario" onclick="GPS();" href="#">Horario</a></li>
+            <li data-icon="alert"><a id="incidencia" href="#incidencia" >Incidencias</a></li>
+            <li data-icon="clock"><a id="horario" href="#">Horario</a></li>
             <li data-icon="arrow-l"><a data-rel="close">Cerrar Menú</a></li>
             <li data-icon="power"><a id="cerrar-sesion-nav" href="#principal">Cerrar Sesión</a></li> 
           </ul>
@@ -205,10 +205,12 @@
               <tbody></tbody>
             </table>
 
+            <button id="localizacion" onclick="GPS();">Localízate</button>
+
             <script type="text/javascript">
               $(document).ready(function(){
                 $("#tablajson tbody").html("");
-                  $.getJSON("http://10.159.1.187:80/PHP/generarJSON.php", function(usuarios) {
+                  $.getJSON("http://192.168.1.41:80/PHP/generarJSON.php", function(usuarios) {
                     $.each(usuarios, function(i,usuario) {
                       var newRow =
                         "<tr>"
@@ -538,6 +540,23 @@
       </div>
 
     </div>
+
+    <div data-role="page" id="incidencia"> <!-- PANTALLA INCIDENCIA -->
+
+      <div id="cabecera-dispositivo"></div>
+      <div data-role="header" id="cabecera"></div>
+
+      <div class="contenedor-principal">
+        <div role="main" class="ui-content">
+          <input type="button" id="btnHacerFoto" value="Hacer foto" onclick="ObtenerFoto();"/>
+          <input type="text" id="descripcion" name="descripcion" placeholder="Descripcion Imagen" />
+          <img id="imgCamara" src="" width="120" height="120" />
+          <input type="button" id="btnEnviar" value="Enviar" onclick="enviardatos();" />
+        </div>
+      </div>
+
+    </div> <!-- FIN PANTALLA INCIDENCIA -->
+
 
   </body>
 </html>
