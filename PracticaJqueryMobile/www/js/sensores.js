@@ -86,55 +86,22 @@ function siRespuesta(position) {
 
   if((latInfoini >= position.coords.latitude) && (position.coords.latitude >= latInfofin)
     && (lonInfoini <= position.coords.longitude) && (position.coords.longitude <= lonInfofin)) {
-      elemento.innerHTML = 'Te encuentras en la Escuela Superior de Ingeniería y Tecnología. ¿de qué carrera quieres saber información?' + "<br>";
-      var boton = document.createElement("button");
-      boton.innerHTML = 'Ingeniería Informática';
-      boton.onclick = function MyFuncion () {
-        alert("Informatica");
-      }
-      var botonDos = document.createElement("button");
-      botonDos.innerHTML = 'Ingeniería Mecánica';
-      botonDos.onclick = function MyFuncion () {
         alert("Hola");
-      }
-      var botonTres = document.createElement("button");
-      botonTres.innerHTML = 'Ingeniería Electrónica';
-      botonTres.onclick = function MyFuncion () {
-        alert("Hola");
-      }
-      elemento.appendChild(boton);
-      elemento.appendChild(botonDos);
-      elemento.appendChild(botonTres);
-  }
+        document.getElementsByClassName("horario").href = "#horarios-informatica";
+        document.getElementsByClassName("incidencia").href = "#horarios-informatica";
+    }
 
   if((latfymini >= position.coords.latitude) && (position.coords.latitude >= latfymfin)
     && (lonfymini <= position.coords.longitude) && (position.coords.longitude <= lonfymfin)) {
-      elemento.innerHTML = 'Te encuentras en la Facultad de Matemáticas y Física. ¿de qué carrera quieres saber información?' + "<br>";
-      var botonCuatro = document.createElement("button");
-      boton.innerHTML = 'Matemáticas';
-      boton.onclick = function MyFuncion () {
-        alert("Informatica");
-      }
-      var botonCinco = document.createElement("button");
-      botonDos.innerHTML = 'Física';
-      botonDos.onclick = function MyFuncion () {
-        alert("Hola");
-      }
-      elemento.appendChild(botonCuatro);
-      elemento.appendChild(botonCinco);
+      document.getElementsByClassName("horario").href = "#horarios-matematicas";
+      document.getElementsByClassName("incidencia").href = "#horarios-matematicas";
   }
 
   if((latbioini >= position.coords.latitude) && (position.coords.latitude >= latbiofin)
     && (lonbioini <= position.coords.longitude) && (position.coords.longitude <= lonbiofin)) {
-      elemento.innerHTML = 'Te encuentras en la Facultad de Biología. ¿de qué carrera quieres saber información?' + "<br>";
-      var botonSeis = document.createElement("button");
-      boton.innerHTML = 'Biología';
-      boton.onclick = function MyFuncion () {
-        alert("Informatica");
-      }
-      elemento.appendChild(botonSeis);
+      document.getElementsByClassName("horario").href = "#horarios-biologia";
+      document.getElementsByClassName("incidencia").href = "#horarios-biologia";
   }
-
 }
 
 function siRespuestaa(position) {
@@ -143,28 +110,27 @@ function siRespuestaa(position) {
 }
 
 function enError(error) {
-  var elemento = document.getElementById("localizacion");
-  elemento.innerHTML = 'Fallo';
+  alert("Error");
 }
 
 ///////////////////////////////////////////////////Cámara/////////////////////////////////////////////////////////////
 
-function camera(){
-	var cameraOptions ={
+function camera() {
+	var cameraOptions = {
 		destinationType: Camera.DestinationType.FILE_URI,
 		sourceType: Camera.PictureSourceType.CAMERA
 	};
 	navigator.camera.getPicture(cameraSuccess, cameraError, cameraOptions);
 }
 
-function cameraSuccess(imgData){
+function cameraSuccess(imgData) {
 	var container = document.getElementById("img_camPH");
 	container.src = imgData;
 	container.width = 300
 	container.height = 300
 }
 
-function cameraError(error){
+function cameraError(error) {
 	alert(error);
 }
 

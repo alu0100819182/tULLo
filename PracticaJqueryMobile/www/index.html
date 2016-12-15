@@ -63,7 +63,7 @@
 
               <a href="#recordar">¿Olvidaste tu contraseña?</a><br><br>
               <button id="enviar" onclick="enviarDos($('#email').val(), $('#pass').val())">Iniciar sesión</button><br>
-              <button id="entrar" href="#">Aprete aquí</button>
+              <a id="entrar" href="#">Aprete aquí</a>
 
               <script type="text/javascript">
               function enviarDos(valor_p, valor_x) {
@@ -82,7 +82,7 @@
                           success: function() {
                               $("#enviar").text("Usuario validado");
                           },
-                          timeout:3000
+                          timeout:4000
                           }).done(function() {
                             $("#entrar").attr("href", "#perfil");
                           }).fail(function(jqXHR, textStatus){
@@ -181,9 +181,9 @@
            <ul data-role="listview">
             <li data-icon="user"><a href="#perfil">Perfil Personal</a></li>
             <li data-icon="calendar"><a href="#calendario">Calendario</a></li>
-            <li data-icon="alert"><a href="#incidencias">Incidencias</a></li>
-            <li data-icon="clock"><a href="#horarios-informatica">Horario</a></li>
-            <li data-icon="arrow-l"><a href="#" data-rel="close">Cerrar Menú</a></li>
+            <li data-icon="alert"><a class="incidencia" onclick="GPS();" href="#" >Incidencias</a></li>
+            <li data-icon="clock"><a class="horario" onclick="GPS();" href="#">Horario</a></li>
+            <li data-icon="arrow-l"><a data-rel="close">Cerrar Menú</a></li>
             <li data-icon="power"><a id="cerrar-sesion-nav" href="#principal">Cerrar Sesión</a></li> 
           </ul>
         </div>
@@ -204,9 +204,6 @@
               </thead>
               <tbody></tbody>
             </table>
-
-          <button onclick="GPS()" class="ui-btn ui-icon-delete ui-shadow-icon ui-btn-b">¿ Dónde estoy ?</button>
-          <div id="localizacion"></div>
 
             <script type="text/javascript">
               $(document).ready(function(){
@@ -264,6 +261,88 @@
             </div>
 
         </div>
+
+        <div data-role="page" id="calendario"> <!-- PANTALLA CALENDARIO -->
+
+          <div data-role="panel" data-position="left" data-display="overlay" data-theme="b" id="nav-panel">
+             <ul data-role="listview">
+              <li data-icon="user"><a href="#perfil">Perfil Personal</a></li>
+              <li data-icon="calendar"><a href="#calendario">Calendario</a></li>
+              <li data-icon="alert"><a href="#incidencias">Incidencias</a></li>
+              <li data-icon="clock"><a href="#horario">Horario</a></li>
+              <li data-icon="arrow-l"><a href="#" data-rel="close">Cerrar Menú</a></li>
+              <li data-icon="power"><a id="cerrar-sesion-nav" href="#principal">Cerrar Sesión</a></li> 
+            </ul>
+          </div>
+
+          <div id="cabecera-dispositivo"></div>
+          <div data-role="header" id="cabecera"><a href="#nav-panel" id="inav" data-iconpos="notext"><i class="fa fa-bars" aria-hidden="true"></i></a></div>
+
+          <div class="contenedor-principal">
+            <div class="contenedor-titulo">CALENDARIO</div>
+            <div role="main" class="ui-content" id="calendario"> <!-- CONTENEDOR DEL CALENDARIO -->
+              <div id="buscafecha"> <!-- BUSCARFECHA -->
+                <form class="ui-shadow-icon" action="#" name="buscar">
+                  <p><b>Seleccione el mes</b>
+                    <select name="buscames" class="select-mes">
+                      <option value="0">ENERO</option>
+                      <option value="1">FEBRERO</option>
+                      <option value="2">MARZO</option>
+                      <option value="3">ABRIL</option>
+                      <option value="4">MAYO</option>
+                      <option value="5">JUNIO</option>
+                      <option value="6">JULIO</option>
+                      <option value="7">AGOSTO</option>
+                      <option value="8">SEPTIEMBRE</option>
+                      <option value="9">OCTUBRE</option>
+                      <option value="10">NOVIEMBRE</option>
+                      <option value="11">DICIEMBRE</option>
+                    </select>
+                    <b>Seleccione el año</b>
+                    <input type="range" name="buscaanno" id="slider" min="1900" max="2025" value="1995">
+                    <a id="boton-buscar" class="ui-btn ui-shadow ui-corner-all ui-btn-icon-left ui-icon-calendar" onclick="mifecha()">BUSCAR</a>
+                  </p>
+                </form>
+              </div> <!-- FIN BUSCARFECHA -->
+              <div id="contenedor-antes-despues">
+                <div id="anterior" class="boton-anterior" onclick="mesantes()"></div>
+                <div id="posterior" class="boton-posterior" onclick="mesdespues()"></div>
+              </div>
+              <div class="contenedor-titulo-calendario">
+                <div id="titulos" class="titulo-mes"></div>
+                <div id="titulo-ano" class="titulo-ano"></div>
+              </div>
+              <div id="contenedor-dias">
+                <div id="panel-tarea" style="display:none">
+                  <div id="insertar-tarea">
+                    <div id="titulo-tarea">
+                      <div id="boton-atras" onclick="ocultarTarea()"></div>
+                      <div id="letras-titulo">AÑADIR TAREA</div>
+                    </div>
+                    <div id="contenedor-tarea">
+                      <div id="informacion-tarea">
+                        <label for="text-basic"><b>Título</b></label>
+                        <input name="text-basic" id="input-titulo" value="" type="text">
+                        <label for="text-basic"><b>Lugar</b></label>
+                        <input name="text-basic" id="input-lugar" value="" type="text">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <table id="diasc">
+                  <tr id="fila0"><th></th><th></th><th></th><th></th><th></th><th></th><th></th></tr>
+                  <tr id="fila1"><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td></tr>
+                  <tr id="fila2"><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td></tr>
+                  <tr id="fila3"><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td></tr>
+                  <tr id="fila4"><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td></tr>
+                  <tr id="fila5"><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td></tr>
+                  <tr id="fila6"><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td><td onclick="mostrarTarea()"></td></tr>
+                </table>
+              </div>
+              <div id="fechaactual"><i onclick="actualizar()"></i><b>HOY</b></div>
+            </div> <!-- FIN CONTENEDOR DEL CALENDARIO -->
+          </div>
+        </div> <!-- FIN PANTALLA CALENDARIO -->
 
   </body>
 </html>
