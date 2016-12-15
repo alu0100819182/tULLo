@@ -63,7 +63,7 @@
 
               <a href="#recordar">¿Olvidaste tu contraseña?</a><br><br>
               <button id="enviar" onclick="enviarDos($('#email').val(), $('#pass').val())">Iniciar sesión</button><br>
-              <a id="entrar" href="#perfil">Aprete aquí</a>
+              <button id="entrar" href="#">Aprete aquí</button>
 
               <script type="text/javascript">
               function enviarDos(valor_p, valor_x) {
@@ -84,7 +84,7 @@
                           },
                           timeout:3000
                           }).done(function() {
-                            //$("#entrar").attr("href", "#perfil");
+                            $("#entrar").attr("href", "#perfil");
                           }).fail(function(jqXHR, textStatus){
                             if(textStatus === 'timeout')
                             {
@@ -135,6 +135,7 @@
             <input type="password" id="userpass" required><br>
             <button id="registrarse" onclick="enviar($('#nickname').val(), $('#nickape').val(), $('#fecha').val(), $('#usermail').val(), $('#nicktele').val(),
             $('#userpass').val())">Registrarse</button>
+            <button id="color"></button>
 
             <script type="text/javascript">
             function enviar(valor_p, valor_x, valor_y, valor_z, valor_w, valor_t) {
@@ -158,11 +159,11 @@
                         },
                         timeout:3000 //3 second timeout
                         }).done(function(){
-                          alert('hola');
-                          //window.location.href = "http://10.159.1.187:3000/index.html";
+                          $("#color").css({'background': 'green'});
                         }).fail(function(jqXHR, textStatus){
                           if(textStatus === 'timeout')
                           {
+                              $("#color").css({'background': 'red'});
                               vibrador();
                           }
                         });
