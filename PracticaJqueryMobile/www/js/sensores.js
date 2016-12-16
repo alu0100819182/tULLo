@@ -194,7 +194,7 @@ function enviarDatos ()
   options.params = params;
   var ft = new FileTransfer();
   var percentageUpload = 0;
-  ft.upload(fichero, "http://192.168.1.41:80/PHP/imagen.php", win, fail, options);
+  ft.upload(fichero, "http://10.159.1.187:80/PHP/imagen.php", win, fail, options);
 }
 
 function win(r) {

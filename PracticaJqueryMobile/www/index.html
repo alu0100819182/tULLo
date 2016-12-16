@@ -63,7 +63,7 @@
 
               <a href="#recordar">¿Olvidaste tu contraseña?</a><br><br>
               <button id="enviar" onclick="enviarDos($('#email').val(), $('#pass').val())">Iniciar sesión</button>
-              <div id="boton-entrar" style="visibility:hidden"><a id="entrar" href="#">Entrar</a></div>
+              <div id="boton-entrar"><a id="entrar" href="#">Entrar</a></div>
 
               <script type="text/javascript">
               function enviarDos(valor_p, valor_x) {
@@ -74,14 +74,13 @@
                     $.ajax({
                           data: parametro,
                           type: 'post',
-                          url: 'http://192.168.1.41:80/PHP/sesion.php',
+                          url: 'http://10.159.1.187:80/PHP/sesion.php',
                           beforeSend: function() {
                               $("#enviar").innerHTML = "";
                               $("#enviar").text("Comprobando usuario...");
                           },
                           success: function() {
                               $("#enviar").text("Usuario validado");
-                              $("#boton-entrar").style.visibility = 'visible';
                           },
                           timeout:3000
                           }).done(function() {
@@ -155,7 +154,7 @@
                     $.ajax({
                         data: parametro,
                         type: 'post',
-                        url: 'http://192.168.1.41:80/PHP/registro.php',
+                        url: 'http://10.159.1.187:80/PHP/registro.php',
                         beforeSend: function() {
                             $("#registrarse").val('Enviando...');
                         },
@@ -207,7 +206,7 @@
             <script type="text/javascript">
               $(document).ready(function(){
                 $("#tablajson tbody").html("");
-                  $.getJSON("http://192.168.1.41:80/PHP/generarJSON.php", function(usuarios) {
+                  $.getJSON("http://10.159.1.187:80/PHP/generarJSON.php", function(usuarios) {
                     $.each(usuarios, function(i,usuario) {
                       var newRow =
                         "<div>" + 'Nombre: ' + usuario.nombre + "<br><br>" + 'Apellidos: ' + usuario.apellido + "<br><br>" + 'Correo: ' + usuario.correo
@@ -565,7 +564,7 @@
           <script type="text/javascript">
             $(document).ready(function(){
               $("#tablajson tbody").html("");
-                $.getJSON("http://192.168.1.41:80/PHP/conseguirImagen.php", function(usuarios) {
+                $.getJSON("http://10.159.1.187:80/PHP/conseguirImagen.php", function(usuarios) {
                   $.each(usuarios, function(i,usuario) {
                     var newRow = "<div>" + 'Usuario: ' + usuario.c + "<br><br>" + 'Descripción: ' + usuario.d +
                                  "<br><br>" + 'Imagen: ' + usuario.i + "<br><br>" + "</div>";

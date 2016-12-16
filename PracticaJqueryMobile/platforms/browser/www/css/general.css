@@ -81,6 +81,26 @@ body {
 	vertical-align: center;
 }
 
+#boton-entrar {
+	width: 99.7%;
+	height: 45px;
+	background-color: #723180;
+	border-radius: 0.3em;
+	display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+    text-align: center;
+    border: 0.3px solid #CCD1CB;
+}
+
+#entrar {
+	font-family: sans-serif;
+    color: white;
+    text-decoration: none;
+    text-shadow: none;
+}
+
 /* ---------- PANTALLA RECORDAR ---------- */
 
 #recordar {
@@ -97,6 +117,18 @@ body {
 	height: 100%;
 	margin: 0;
 	background-color: black;
+}
+
+.contenedor-input-nombre {
+	width: 35%;
+	height: 60%;
+	float: left;
+}
+
+.contenedor-input-apellidos {
+	width: 63%;
+	height: 60%;
+	float: right;
 }
 
 /* ---------- PANTALLA INFORMACION USUARIOS ---------- */
