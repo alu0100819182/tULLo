@@ -146,6 +146,7 @@ body {
     background-size: cover;
     border: 1px solid black;
     border-radius: 0.3em;
+    margin-top: 15%;
 }
 
 .boton-localizate {
