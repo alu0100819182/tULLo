@@ -62,8 +62,8 @@
               <input id="pass" type="password">
 
               <a href="#recordar">¿Olvidaste tu contraseña?</a><br><br>
-              <button id="enviar" onclick="enviarDos($('#email').val(), $('#pass').val())">Iniciar sesión</button><br>
-              <a id="entrar" href="#">Aprete aquí</a>
+              <button id="enviar" onclick="enviarDos($('#email').val(), $('#pass').val())">Iniciar sesión</button>
+              <div id="boton-entrar" style="visibility:hidden"><a id="entrar" href="#">Entrar</a></div>
 
               <script type="text/javascript">
               function enviarDos(valor_p, valor_x) {
@@ -81,6 +81,7 @@
                           },
                           success: function() {
                               $("#enviar").text("Usuario validado");
+                              $("#boton-entrar").style.visibility = 'visible';
                           },
                           timeout:3000
                           }).done(function() {
