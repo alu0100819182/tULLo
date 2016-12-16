@@ -121,10 +121,14 @@
       <div class="contenedor-principal">
         <div class="contenedor-titulo">REGISTRO</div>
       	<div role="main" class="ui-content">
+          <div class="contenedor-input-nombre">
             <label for="nombre"><b>Nombre</b></label>
             <input type="text" id="nickname" required>
+          </div>
+          <div class="contenedor-input-apellidos">
             <label for="apellidos"><b>Apellidos</b></label>
             <input type="text" id="nickape" required>
+          </div>
             <label for="fecha"><b>Fecha de nacimiento</b></label>
             <input type="date" id="fecha" required>
             <label for="correo"><b>Correo</b></label>
@@ -132,7 +136,7 @@
             <label for="movil"><b>Telefono</b></label>
             <input type="tel" id="nicktele" required>
             <label for="contra"><b>Contraseña</b></label>
-            <input type="password" id="userpass" required><br>
+            <input type="password" id="userpass" required>
             <button id="registrarse" onclick="enviar($('#nickname').val(), $('#nickape').val(), $('#fecha').val(), $('#usermail').val(), $('#nicktele').val(),
             $('#userpass').val())">Registrarse</button>
             <button id="color"></button>
