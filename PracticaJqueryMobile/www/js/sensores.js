@@ -87,18 +87,42 @@ function siRespuesta(position) {
     && (lonInfoini <= position.coords.longitude) && (position.coords.longitude <= lonInfofin)) {
         document.getElementById("horario").href = "#horarios-informatica";
         document.getElementById("incidencia").href = "#incidencia-informatica";
+        document.getElementById("horariodos").href = "#horarios-informatica";
+        document.getElementById("incidenciados").href = "#incidencia-informatica";
+        document.getElementById("horariotres").href = "#horarios-informatica";
+        document.getElementById("incidenciatres").href = "#incidencia-informatica";
+        document.getElementById("horariocuatro").href = "#horarios-informatica";
+        document.getElementById("incidenciacuatro").href = "#incidencia-informatica";
+        document.getElementById("horariocinco").href = "#horarios-informatica";
+        document.getElementById("incidenciainco").href = "#incidencia-informatica";
     }
 
   if((latfymini >= position.coords.latitude) && (position.coords.latitude >= latfymfin)
     && (lonfymini <= position.coords.longitude) && (position.coords.longitude <= lonfymfin)) {
       document.getElementById("horario").href = "#horarios-matematicas";
       document.getElementById("incidencia").href = "#incidencia-matematica";
+      document.getElementById("horariodos").href = "#horarios-matematicas";
+      document.getElementById("incidenciados").href = "#incidencia-matematica";
+      document.getElementById("horariotres").href = "#horarios-matematicas";
+      document.getElementById("incidenciatres").href = "#incidencia-matematica";
+      document.getElementById("horariocuatro").href = "#horarios-matematicas";
+      document.getElementById("incidenciacuatro").href = "#incidencia-matematica";
+      document.getElementById("horariocinco").href = "#horarios-matematicas";
+      document.getElementById("incidenciacinco").href = "#incidencia-matematica";
   }
 
   if((latbioini >= position.coords.latitude) && (position.coords.latitude >= latbiofin)
     && (lonbioini <= position.coords.longitude) && (position.coords.longitude <= lonbiofin)) {
       document.getElementById("horario").href = "#horarios-biologia";
       document.getElementById("incidencia").href = "#incidencia-biologia";
+      document.getElementById("horariodos").href = "#horarios-biologia";
+      document.getElementById("incidenciados").href = "#incidencia-biologia";
+      document.getElementById("horariotres").href = "#horarios-biologia";
+      document.getElementById("incidenciatres").href = "#incidencia-biologia";
+      document.getElementById("horariocuatro").href = "#horarios-biologia";
+      document.getElementById("incidenciacuatro").href = "#incidencia-biologia";
+      document.getElementById("horariocinco").href = "#horarios-biologia";
+      document.getElementById("incidenciacinco").href = "#incidencia-biologia";
   }
 }
 
