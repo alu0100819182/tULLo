@@ -82,7 +82,7 @@
                           success: function() {
                               $("#enviar").text("Usuario validado");
                           },
-                          timeout:4000
+                          timeout:3000
                           }).done(function() {
                             $("#entrar").attr("href", "#perfil");
                           }).fail(function(jqXHR, textStatus){
@@ -181,7 +181,7 @@
            <ul data-role="listview">
             <li data-icon="user"><a href="#perfil">Perfil Personal</a></li>
             <li data-icon="calendar"><a href="#calendario">Calendario</a></li>
-            <li data-icon="alert"><a id="incidencia" href="#incidencia" >Incidencias</a></li>
+            <li data-icon="alert"><a id="incidencia" href="#" >Incidencias</a></li>
             <li data-icon="clock"><a id="horario" href="#">Horario</a></li>
             <li data-icon="arrow-l"><a data-rel="close">Cerrar Menú</a></li>
             <li data-icon="power"><a id="cerrar-sesion-nav" href="#principal">Cerrar Sesión</a></li> 
@@ -194,16 +194,8 @@
         <div class="contenedor-titulo">INFORMACIÓN USUARIO</div>
         <div class="contenedor-principal">
           <div role="main" class="ui-content jqm-content jqm-fullwidth" data-position="fixed">
-            <table class="grilla" id="tablajson">
-              <thead>
-                <th>Nombre</th>
-                <th>Apellido</th>
-                <th>Correo</th>
-                <th>Fecha</th>
-                <th>Telefono</th>
-              </thead>
-              <tbody></tbody>
-            </table>
+
+          <div id="infousuario"></div>
 
             <button id="localizacion" onclick="GPS();">Localízate</button>
 
@@ -213,14 +205,9 @@
                   $.getJSON("http://192.168.1.41:80/PHP/generarJSON.php", function(usuarios) {
                     $.each(usuarios, function(i,usuario) {
                       var newRow =
-                        "<tr>"
-                        +"<td>"+usuario.nombre+"</td>"
-                        +"<td>"+usuario.apellido+"</td>"
-                        +"<td>"+usuario.correo+"</td>"
-                        +"<td>"+usuario.fecha+"</td>"
-                        +"<td>"+usuario.telefono+"</td>"
-                        +"</tr>";
-                        $(newRow).appendTo("#tablajson tbody");
+                        "<div>" + 'Nombre: ' + usuario.nombre + "<br><br>" + 'Apellidos: ' + usuario.apellido + "<br><br>" + 'Correo: ' + usuario.correo
+                        + "<br><br>" + 'Fecha de nacimiento: ' + usuario.fecha + "<br><br>" + 'Telefono: ' + usuario.telefono + "</div>";
+                        $(newRow).appendTo("#infousuario");
                     });
                   });
               });
@@ -541,20 +528,39 @@
 
     </div>
 
-    <div data-role="page" id="incidencia"> <!-- PANTALLA INCIDENCIA -->
+    <div data-role="page" id="incidencia-informatica"> <!-- PANTALLA INCIDENCIA -->
 
       <div id="cabecera-dispositivo"></div>
       <div data-role="header" id="cabecera"></div>
 
       <div class="contenedor-principal">
+        <div class="contenedor-titulo">INCIDENCIAS (SUBIR INCIDENCIA)</div>
         <div role="main" class="ui-content">
           <input type="button" id="btnHacerFoto" value="Hacer foto" onclick="ObtenerFoto();"/>
           <input type="text" id="descripcion" name="descripcion" placeholder="Descripcion Imagen" />
           <img id="imgCamara" src="" width="120" height="120" />
-          <input type="button" id="btnEnviar" value="Enviar" onclick="enviardatos();" />
+          <input type="button" id="btnEnviar" value="Enviar" onclick="enviarDatos();" />
+        </div>
+
+        <div class="contenedor-titulo">INCIDENCIAS INFORMATICA</div>
+        <div role="main" class="ui-content">
+          <div id="incidi"></div>
+
+          <script type="text/javascript">
+            $(document).ready(function(){
+              $("#tablajson tbody").html("");
+                $.getJSON("http://192.168.1.41:80/PHP/conseguirImagen.php", function(usuarios) {
+                  $.each(usuarios, function(i,usuario) {
+                    var newRow = "<div>" + 'Usuario: ' + usuario.c + "<br><br>" + 'Descripción: ' + usuario.d +
+                                 "<br><br>" + 'Imagen: ' + usuario.i + "<br><br>" + "</div>";
+                    $(newRow).appendTo("#incidi");
+                  });
+                });
+            });
+          </script>
+
         </div>
       </div>
-
     </div> <!-- FIN PANTALLA INCIDENCIA -->
 
 

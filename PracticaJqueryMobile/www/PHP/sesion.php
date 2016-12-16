@@ -1,5 +1,4 @@
-
-    <?php
+<?php
 
     header("Access-Control-Allow-Origin: *");
 
@@ -31,14 +30,21 @@
         $row = mysql_fetch_array($resultado);
 
           if($count == 1) {
-            sleep(1);
+            $consultaDos = "INSERT INTO `tullo`.`correos` (`corre`) VALUES ('$mail');";
+            $resultadoDos = mysql_query($consultaDos);
+            if(! $resultadoDos) {
+              echo "La conexion no se logro".mysql_error();
+              die;
+            }
           }
           else {
-            sleep(5);
+            sleep(6);
+            echo "No esta";
           }
     }
     else {
-      sleep(5);
+      echo "No campos";
+      sleep(6);
     }
 
     ?>

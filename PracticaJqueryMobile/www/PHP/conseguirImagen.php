@@ -12,19 +12,7 @@ or die("Ha sucedido un error inexperado en la conexion de la base de datos");
 mysql_set_charset("utf8", $con); //formato de datos utf8
 $conexion = mysql_select_db($bd, $con);
 
-//generamos la consultas
-$consul = "SELECT * FROM correos";
-$resul = mysql_query($consul);
-
-if(! $resul) {
-  echo "La conexion no se logro".mysql_error();
-  die;
-}
-
-$row = mysql_fetch_array($resul);
-$aux = $row['corre'];
-
-$consulta = "SELECT * FROM usuarios WHERE correo = '$aux'";
+$consulta = "SELECT * FROM incidencias";
 $sql = mysql_query($consulta);
 
 if(! $sql) {
@@ -36,16 +24,12 @@ $usuarios = array(); //creamos un array
 
 while($row = mysql_fetch_array($sql))
 {
-  $nombre = $row['nombre'];
-  $apellido = $row['apellidos'];
-  $correo = $row['correo'];
-  $fecha = $row['fecha_nacimiento'];
-  $telefono = $row['telefono'];
-  $usuarios[] = array('nombre'=> $nombre,
-                        'apellido'=> $apellido,
-                        'correo'=> $correo,
-                        'fecha'=> $fecha,
-                        'telefono'=> $telefono);
+  $cor = $row['correo'];
+  $des = $row['descripcion'];
+  $ima = $row['imagen'];
+  $usuarios[] = array('c'=> $cor,
+                      'd'=> $des,
+                      'i'=> $ima);
 }
 
 //Creamos el JSON

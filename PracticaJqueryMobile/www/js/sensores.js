@@ -86,19 +86,19 @@ function siRespuesta(position) {
   if((latInfoini >= position.coords.latitude) && (position.coords.latitude >= latInfofin)
     && (lonInfoini <= position.coords.longitude) && (position.coords.longitude <= lonInfofin)) {
         document.getElementById("horario").href = "#horarios-informatica";
-        document.getElementById("incidencia").href = "#horarios-informatica";
+        document.getElementById("incidencia").href = "#incidencia-informatica";
     }
 
   if((latfymini >= position.coords.latitude) && (position.coords.latitude >= latfymfin)
     && (lonfymini <= position.coords.longitude) && (position.coords.longitude <= lonfymfin)) {
       document.getElementById("horario").href = "#horarios-matematicas";
-      document.getElementById("incidencia").href = "#horarios-matematicas";
+      document.getElementById("incidencia").href = "#incidencia-matematica";
   }
 
   if((latbioini >= position.coords.latitude) && (position.coords.latitude >= latbiofin)
     && (lonbioini <= position.coords.longitude) && (position.coords.longitude <= lonbiofin)) {
       document.getElementById("horario").href = "#horarios-biologia";
-      document.getElementById("incidencia").href = "#horarios-biologia";
+      document.getElementById("incidencia").href = "#incidencia-biologia";
   }
 }
 
