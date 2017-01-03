@@ -166,43 +166,36 @@ function vibrador() {
 
 var fichero;
 
-function ObtenerFoto()
-{
-  navigator.camera.getPicture(correcto, error, { quality: 100, allowEdit: false});
+function hacerFoto(){
+  navigator.camera.getPicture(onSuccess, onFail, { quality: 50, destinationType: Camera.DestinationType.FILE_URI });
 }
 
-function correcto(rutaImagen) {
-  document.getElementById("imgCamara").src = rutaImagen;
-  fichero = rutaImagen;
+function onSuccess(imageURI) {
+  var image = document.getElementById('fotoLocal');
+  image.src = imageURI;
+  subirImagen(imageURI)
 }
 
-function error(message) {
-  alert ("Error =>" + message);
+function onFail(message) {
+  alert('Failed because: ' + message);
 }
 
-function enviarDatos ()
-{
+function subirImagen(fileURL) {
+
   var options = new FileUploadOptions();
-  options.fileKey = "file";
-  options.fileName = fichero.substr(fichero.lastIndexOf('/') + 1);
-  options.mimeType = "image/jpeg";
-  options.chunkedMode = true;
+  options.fileKey = "imagen";
+  options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
 
-  var params = new Object();
-  params.descripcion = document.getElementById("descripcion").value;
-
-  options.params = params;
   var ft = new FileTransfer();
-  var percentageUpload = 0;
-  ft.upload(fichero, "http://10.159.1.187:80/PHP/imagen.php", win, fail, options);
+  ft.upload(fileURL, encodeURI("http://192.168.0.161:80/PHP/imagen.php"), uploadSuccess, uploadFail, options);
 }
 
-function win(r) {
-  alert("Respuesta servidor" + r.response);
+function uploadSuccess(r) {
+  alert("Code = " + r.responseCode+" Response = " + r.response+" Sent = " + r.bytesSent);
+  var image = document.getElementById('fotoServidor');
+  image.src = r.response;
 }
 
-function fail(error) {
-  alert("upload error source" + error.source);
-  alert("upload error target" + error.target);
-  alert("An error has ocurred: Code = " + error.code);
+function uploadFail(error) {
+  alert("An error has occurred: Code = " + error.code+ " upload error source " + error.source+" upload error target " + error.target);
 }

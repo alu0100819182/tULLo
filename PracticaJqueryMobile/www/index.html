@@ -74,7 +74,7 @@
                     $.ajax({
                           data: parametro,
                           type: 'post',
-                          url: 'http://10.159.1.187:80/PHP/sesion.php',
+                          url: 'http://192.168.0.161:80/PHP/sesion.php',
                           beforeSend: function() {
                               $("#enviar").innerHTML = "";
                               $("#enviar").text("Comprobando usuario...");
@@ -185,7 +185,7 @@
            <ul data-role="listview">
             <li data-icon="user"><a href="#perfil">Perfil Personal</a></li>
             <li data-icon="calendar"><a href="#calendario">Calendario</a></li>
-            <li data-icon="alert"><a id="incidencia" href="#" >Incidencias</a></li>
+            <li data-icon="alert"><a id="incidencia" href="#incidencia-informatica" >Incidencias</a></li>
             <li data-icon="clock"><a id="horario" href="#">Horario</a></li>
             <li data-icon="arrow-l"><a data-rel="close">Cerrar Menú</a></li>
             <li data-icon="power"><a id="cerrar-sesion-nav" href="#principal">Cerrar Sesión</a></li> 
@@ -553,10 +553,10 @@
       <div class="contenedor-principal">
         <div class="contenedor-titulo">INCIDENCIAS (SUBIR INCIDENCIA)</div>
         <div role="main" class="ui-content">
-          <input type="button" id="btnHacerFoto" value="Hacer foto" onclick="ObtenerFoto();"/>
-          <input type="text" id="descripcion" name="descripcion" placeholder="Descripcion Imagen" />
-          <img id="imgCamara" src="" width="120" height="120" />
-          <input type="button" id="btnEnviar" value="Enviar" onclick="enviarDatos();" />
+          <input type="button" id="btnHacerFoto" value="Hacer foto" onclick="hacerFoto();"/>
+          <!--<input type="text" id="descripcion" name="descripcion" placeholder="Descripcion Imagen" />-->
+          <img id="fotoLocal" src="" width="100px" height="100px">
+          <img id="fotoServidor" src="" width="100px" height="100px">
         </div>
 
         <div class="contenedor-titulo">INCIDENCIAS INFORMATICA</div>
