@@ -187,7 +187,7 @@ function subirImagen(fileURL) {
   options.fileName = fileURL.substr(fileURL.lastIndexOf('/') + 1);
 
   var ft = new FileTransfer();
-  ft.upload(fileURL, encodeURI("http://192.168.0.161:80/PHP/imagen.php"), uploadSuccess, uploadFail, options);
+  ft.upload(fileURL, encodeURI("http://192.168.1.41:80/PHP/imagen.php"), uploadSuccess, uploadFail, options);
 }
 
 function uploadSuccess(r) {

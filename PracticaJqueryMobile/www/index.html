@@ -74,7 +74,7 @@
                     $.ajax({
                           data: parametro,
                           type: 'post',
-                          url: 'http://192.168.0.161:80/PHP/sesion.php',
+                          url: 'http://192.168.1.41:80/PHP/sesion.php',
                           beforeSend: function() {
                               $("#enviar").innerHTML = "";
                               $("#enviar").text("Comprobando usuario...");
@@ -154,7 +154,7 @@
                     $.ajax({
                         data: parametro,
                         type: 'post',
-                        url: 'http://10.159.1.187:80/PHP/registro.php',
+                        url: 'http://192.168.1.41:80/PHP/registro.php',
                         beforeSend: function() {
                             $("#registrarse").val('Enviando...');
                         },
@@ -208,7 +208,7 @@
             <script type="text/javascript">
               $(document).ready(function(){
                 $("#tablajson tbody").html("");
-                  $.getJSON("http://10.159.1.187:80/PHP/generarJSON.php", function(usuarios) {
+                  $.getJSON("http://192.168.1.41:80/PHP/generarJSON.php", function(usuarios) {
                     $.each(usuarios, function(i,usuario) {
                       var newRow =
                         "<div>" + 'Nombre: ' + usuario.nombre + "<br><br>" + 'Apellidos: ' + usuario.apellido + "<br><br>" + 'Correo: ' + usuario.correo
@@ -553,8 +553,9 @@
       <div class="contenedor-principal">
         <div class="contenedor-titulo">INCIDENCIAS (SUBIR INCIDENCIA)</div>
         <div role="main" class="ui-content">
+          <p> Descripcion </p>
+          <input type="text" id="descripcion" name="descripcion" placeholder="Descripcion Imagen" />
           <input type="button" id="btnHacerFoto" value="Hacer foto" onclick="hacerFoto();"/>
-          <!--<input type="text" id="descripcion" name="descripcion" placeholder="Descripcion Imagen" />-->
           <img id="fotoLocal" src="" width="100px" height="100px">
           <img id="fotoServidor" src="" width="100px" height="100px">
         </div>
@@ -566,11 +567,17 @@
           <script type="text/javascript">
             $(document).ready(function(){
               $("#tablajson tbody").html("");
-                $.getJSON("http://10.159.1.187:80/PHP/conseguirImagen.php", function(usuarios) {
+                $.getJSON("http://192.168.1.41:80/PHP/conseguirImagen.php", function(usuarios) {
                   $.each(usuarios, function(i,usuario) {
                     var newRow = "<div>" + 'Usuario: ' + usuario.c + "<br><br>" + 'Descripción: ' + usuario.d +
-                                 "<br><br>" + 'Imagen: ' + usuario.i + "<br><br>" + "</div>";
+                                 "<br><br>";
+                    var imagen = document.createElement("img");
+                    imagen.src = 'http://192.168.1.41:80/' + usuario.i;
+                    imagen.style.width = "100px";
+                    imagen.style.height = "100px";
+                    imagen.style.transform = "rotate(90deg)"
                     $(newRow).appendTo("#incidi");
+                    $(imagen).appendTo("#incidi");
                   });
                 });
             });
